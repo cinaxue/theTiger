@@ -24,7 +24,8 @@
     recordEncoding = ENC_AAC;
     self.microphone = [EZMicrophone microphoneWithDelegate:self];
     [self.audioPlot setBackgroundColor:[UIColor colorWithRed: 0.984 green: 0.71 blue: 0.365 alpha: 1]];
-    self.audioPlot.plotType = EZPlotTypeRolling;
+    self.audioPlot.plotType = EZPlotTypeBuffer;
+    
     // Fill
     self.audioPlot.shouldFill = YES;
     // Mirror
