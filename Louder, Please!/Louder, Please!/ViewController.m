@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     
-    NSLog(@"this is a test");
+    NSLog(@"just a test");
     
     
     
