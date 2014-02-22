@@ -20,6 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    NSLog(@"this is a test");
+    
 	// Do any additional setup after loading the view, typically from a nib.
     recordEncoding = ENC_AAC;
     self.microphone = [EZMicrophone microphoneWithDelegate:self];
