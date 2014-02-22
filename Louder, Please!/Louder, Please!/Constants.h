@@ -20,6 +20,10 @@ typedef NSUInteger  ScrollType;
 #define KPeakPower @"peakPower"
 
 #define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
+
+#define KLevel_key4_6 @"key4_6"
+
+
 #define KAlertPowerRange_160_150 @"你确定是在用嘴发声么！！！"
 #define KAlertPowerRange_150_120 @"你TMD的有病吧，这里是比谁嘶吼声大又不是比小！"
 #define KAlertPowerRange_120_90 @"说悄悄话呢吧！大声点，老板没在"

@@ -34,6 +34,7 @@
     [self.microphone startFetchingAudio];
 }
 
+// 上面显示正在录制的一个动画效果，每0.1秒按照顺序切换一张图片
 -(void) startRecordingAnimation:(NSNumber*) bgNumber
 {
     // VoiceSearchFeedback005_ios7
@@ -101,6 +102,7 @@
 
 -(IBAction) stopRecording
 {
+    // 取消[self Perform]的函数的死循环，隐藏正在录制的动画
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     self.mRecordingBackgroundImage.alpha =0;
     
@@ -151,7 +153,6 @@
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
     
-
     if (audioRecorder) {
         if (!audioPlayer) {
             NSError *error;

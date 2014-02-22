@@ -49,6 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    [[Tools sharedTools].fullLists valueForKey:KLevel_key4_6].count;
     return [Tools sharedTools].fullLists.count;
 }
 
