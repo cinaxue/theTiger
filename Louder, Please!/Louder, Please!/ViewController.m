@@ -107,9 +107,7 @@
 
 -(void)forRecordTimerMethod
 {
-    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioRecorder.url error:Nil];
-    _mRecordDurationLabel.text = [NSString stringWithFormat:@"%f",player.duration];
-    [player release];
+    _mRecordDurationLabel.text = [NSString stringWithFormat:@"%.2f",[recordDate timeIntervalSinceDate:[NSDate date]]];
 }
 
 -(IBAction) stopRecording

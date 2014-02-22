@@ -92,12 +92,15 @@
         [cell setBackgroundColor:[UIColor clearColor]];
     }
     
-    
     NSDictionary *dic =[_forTableViewArr objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%.2f", [[dic valueForKey:KAveragePower] floatValue]];
+    
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[dic valueForKey:@"path"]] error:Nil];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%.2f(%.2fs)", [[dic valueForKey:KAveragePower] floatValue],player.duration];
     cell.detailTextLabel.text =[[[dic valueForKey:@"date"] description] substringToIndex:20];
     // Configure the cell...
     
+    [player release];
     return cell;
 }
 
