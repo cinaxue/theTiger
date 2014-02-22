@@ -21,13 +21,6 @@
 {
     [super viewDidLoad];
     
-    
-    NSLog(@"just a test");
-    
-    
-    
-    NSLog(@"this is a test--Cina");
-
 	// Do any additional setup after loading the view, typically from a nib.
     recordEncoding = ENC_AAC;
     self.microphone = [EZMicrophone microphoneWithDelegate:self];
