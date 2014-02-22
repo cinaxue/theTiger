@@ -21,7 +21,10 @@ typedef NSUInteger  ScrollType;
 
 #define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
-#define KLevel_key4_6 @"key4_6"
+#define KTimeLevel_4_6 @"Second4_6"
+#define KTimeLevel_6_8 @"Second6_8"
+#define KTimeLevel_8_10 @"Second8_10"
+#define KTimeLevel_10_max @"Second10_max"
 
 
 #define KAlertPowerRange_160_150 @"你确定是在用嘴发声么！！！"

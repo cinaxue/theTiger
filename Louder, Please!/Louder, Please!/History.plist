@@ -2,9 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>New item</key>
+	<key>Second4_6</key>
 	<array/>
-	<key>New item - 2</key>
+	<key>Second6_8</key>
+	<array/>
+	<key>Second8_10</key>
+	<array/>
+	<key>Second10_max</key>
 	<array/>
 </dict>
 </plist>

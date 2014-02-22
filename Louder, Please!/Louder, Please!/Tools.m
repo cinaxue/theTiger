@@ -41,13 +41,14 @@ static Tools *sharedTools;
                 [Tools showAlert:@"APP内的初始化列表没有找到！"];
             }
         }
-
-        fullLists = [[NSMutableArray alloc]initWithContentsOfFile:path];
+        
+        fullLists = [[NSMutableDictionary alloc]initWithContentsOfFile:path];
 //        NSDictionary *aDic = [NSDictionary dictionaryWithContentsOfFile:path];
 //        mBackgroundImagePath = [[aDic objectForKey:@"BackgroundStyle"] intValue];
     }
     return self;
 }
+
 +(void)addPowerToHistoryAVAudioRecorder:(AVAudioRecorder *)audioRecorder Date:(NSDate *)date
 {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -59,7 +60,20 @@ static Tools *sharedTools;
     [dic setValue:date forKey:@"date"];
     [dic setValue:audioRecorder.url.path forKey:@"path"];
     
-    [[Tools sharedTools].fullLists addObject:dic];
+    
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioRecorder.url error:Nil];
+    NSLog(@"测试打印，录音总时间%f",audioPlayer.duration);
+    
+    if (audioPlayer.duration>4 && audioPlayer.duration<6) {
+        [[[Tools sharedTools].fullLists objectForKey:KTimeLevel_4_6] addObject:dic];
+    }else if(audioPlayer.duration>6 && audioPlayer.duration<8){
+        [[[Tools sharedTools].fullLists objectForKey:KTimeLevel_6_8] addObject:dic];
+    }else if(audioPlayer.duration>8 && audioPlayer.duration<10){
+        [[[Tools sharedTools].fullLists objectForKey:KTimeLevel_8_10] addObject:dic];
+    }else if(audioPlayer.duration>10){
+        [[[Tools sharedTools].fullLists objectForKey:KTimeLevel_10_max] addObject:dic];
+    }
+    
     [[Tools sharedTools].fullLists writeToFile:path atomically:YES];
 }
 

@@ -38,6 +38,7 @@ enum
 @property (nonatomic,strong) EZRecorder *recorder;
 @property (nonatomic,strong) EZMicrophone *microphone;
 
+@property (retain, nonatomic) IBOutlet UILabel *mRecordDurationLabel;
 @property (retain, nonatomic) IBOutlet EZAudioPlotGL *audioPlot;
 @property (retain, nonatomic) IBOutlet UIImageView *mRecordingBackgroundImage;
 @property (retain, nonatomic) IBOutlet UIButton *mButtonPlay;

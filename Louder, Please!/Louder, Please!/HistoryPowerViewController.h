@@ -14,5 +14,10 @@
     AVAudioPlayer *audioPlayer;
 }
 
+@property (retain, nonatomic) IBOutlet UITableView *mTimeLevelTableView;
+
+@property (retain, nonatomic) NSMutableArray *forTableViewArr;
+- (IBAction)forTimeLevelSegmented:(id)sender;
+
 -(IBAction)goBack:(id)sender;
 @end

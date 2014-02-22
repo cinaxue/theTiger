@@ -8,13 +8,14 @@
 
 #import "HistoryPowerViewController.h"
 #import "Tools.h"
-#import <AVFoundation/AVFoundation.h>
 
 @interface HistoryPowerViewController ()
 
 @end
 
 @implementation HistoryPowerViewController
+
+
 
 -(void)goBack:(id)sender
 {
@@ -32,13 +33,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _forTableViewArr = [[NSMutableArray alloc] initWithArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_4_6]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)forTimeLevelSegmented:(id)sender
+{
+    UISegmentedControl *seg = (UISegmentedControl *)sender;
+    [_forTableViewArr removeAllObjects];
+    switch (seg.selectedSegmentIndex) {
+        case 0:{
+            [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_4_6]];
+        }
+            break;
+        case 1:{
+            [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_6_8]];
+        }
+            break;
+        case 2:{
+            [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_8_10]];
+        }
+            break;
+        case 3:{
+            [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_10_max]];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    [_mTimeLevelTableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -50,7 +79,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    [[Tools sharedTools].fullLists valueForKey:KLevel_key4_6].count;
-    return [Tools sharedTools].fullLists.count;
+    
+    return _forTableViewArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +91,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
         [cell setBackgroundColor:[UIColor clearColor]];
     }
-    NSDictionary *dic =[[Tools sharedTools].fullLists objectAtIndex:indexPath.row];
+    
+    
+    NSDictionary *dic =[_forTableViewArr objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%.2f", [[dic valueForKey:KAveragePower] floatValue]];
     cell.detailTextLabel.text =[[[dic valueForKey:@"date"] description] substringToIndex:20];
     // Configure the cell...
@@ -71,7 +103,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *diction =[[Tools sharedTools].fullLists objectAtIndex:indexPath.row];
+    NSDictionary *diction =[_forTableViewArr objectAtIndex:indexPath.row];
 //    NSDate *date = [diction valueForKey:@"date"];
 //    NSString *caldate = [date description];
 //    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate] retain];
@@ -117,6 +149,8 @@
         [audioPlayer release];
         audioPlayer = nil;
     }
+    
+    [_mTimeLevelTableView release];
     [super dealloc];
 }
 @end

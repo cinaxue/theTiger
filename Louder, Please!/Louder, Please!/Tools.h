@@ -15,7 +15,8 @@
 {
     NSInteger mBackgroundImagePath;
 }
-@property(nonatomic,retain) NSMutableArray *fullLists;
+
+@property(nonatomic,retain) NSMutableDictionary *fullLists;
 @property(nonatomic, assign) SEL selector;
 
 +(void) addPowerToHistoryAVAudioRecorder:(AVAudioRecorder*) audioRecorder Date:(NSDate*) date;

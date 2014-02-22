@@ -19,6 +19,15 @@
                             <view contentMode="scaleToFill" id="l3h-92-PpV" customClass="EZAudioPlotGL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZoV-VU-gOQ">
+                                        <rect key="frame" x="93" y="114" width="135" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.98823535442352295" green="0.81568634510040283" blue="0.21960785984992981" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cob-i4-h8t">
@@ -66,6 +75,7 @@
                     <connections>
                         <outlet property="audioPlot" destination="l3h-92-PpV" id="Yzu-0r-3NC"/>
                         <outlet property="mButtonPlay" destination="uPe-mh-lxX" id="7Q4-c6-3Xa"/>
+                        <outlet property="mRecordDurationLabel" destination="ZoV-VU-gOQ" id="rlJ-T4-Oco"/>
                         <outlet property="mRecordingBackgroundImage" destination="pKL-VK-xqr" id="sBz-bV-6Nj"/>
                     </connections>
                 </viewController>

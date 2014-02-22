@@ -11,6 +11,9 @@
 #import "HistoryPowerViewController.h"
 
 @interface ViewController ()
+{
+    NSTimer *recordTimer;
+}
 @end
 
 @implementation ViewController
@@ -98,10 +101,24 @@
         int errorCode = CFSwapInt32HostToBig ([error code]);
         NSLog(@"Error: %@ [%4.4s])" , [error localizedDescription], (char*)&errorCode);
     }
+    
+    recordTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(forRecordTimerMethod) userInfo:nil repeats:YES];
+}
+
+-(void)forRecordTimerMethod
+{
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioRecorder.url error:Nil];
+    _mRecordDurationLabel.text = [NSString stringWithFormat:@"%f",player.duration];
+    [player release];
 }
 
 -(IBAction) stopRecording
 {
+    
+    [recordTimer invalidate];
+    _mRecordDurationLabel.text = @"";
+    
+    
     // 取消[self Perform]的函数的死循环，隐藏正在录制的动画
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     self.mRecordingBackgroundImage.alpha =0;
@@ -114,7 +131,7 @@
         averagePower = [audioRecorder averagePowerForChannel:0];
         [audioRecorder stop];
 //        [self.microphone stopFetchingAudio];
-
+        
         // 保存到本地
         [Tools addPowerToHistoryAVAudioRecorder:audioRecorder Date:recordDate];
         [recordDate release];
@@ -274,6 +291,7 @@ withNumberOfChannels:(UInt32)numberOfChannels {
     [_mButtonPlay release];
     [_mRecordingBackgroundImage release];
     [_audioPlot release];
+    [_mRecordDurationLabel release];
     [super dealloc];
 }
 
