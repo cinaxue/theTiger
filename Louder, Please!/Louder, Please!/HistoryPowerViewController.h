@@ -18,6 +18,7 @@
 
 @property (retain, nonatomic) NSMutableArray *forTableViewArr;
 - (IBAction)forTimeLevelSegmented:(id)sender;
+- (IBAction)changeEditMode:(id)sender;
 
 -(IBAction)goBack:(id)sender;
 @end

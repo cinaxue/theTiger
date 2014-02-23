@@ -10,6 +10,9 @@
 #import "Tools.h"
 
 @interface HistoryPowerViewController ()
+{
+    NSString *LevelSignStr;
+}
 
 @end
 
@@ -34,6 +37,7 @@
 {
     [super viewDidLoad];
     _forTableViewArr = [[NSMutableArray alloc] initWithArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_4_6]];
+    LevelSignStr = KTimeLevel_4_6;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,24 +53,50 @@
     switch (seg.selectedSegmentIndex) {
         case 0:{
             [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_4_6]];
+            LevelSignStr = KTimeLevel_4_6;
         }
             break;
         case 1:{
             [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_6_8]];
+            LevelSignStr = KTimeLevel_6_8;
         }
             break;
         case 2:{
             [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_8_10]];
+            LevelSignStr = KTimeLevel_8_10;
         }
             break;
         case 3:{
             [_forTableViewArr addObjectsFromArray:[[Tools sharedTools].fullLists objectForKey:KTimeLevel_10_max]];
+            LevelSignStr = KTimeLevel_10_max;
         }
             break;
             
         default:
             break;
     }
+    [_mTimeLevelTableView reloadData];
+}
+
+- (IBAction)changeEditMode:(id)sender
+{
+    _mTimeLevelTableView.editing = !_mTimeLevelTableView.editing;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *diction =[_forTableViewArr objectAtIndex:indexPath.row];
+    NSString *dataPath = [diction valueForKey:@"path"];
+    
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    [fileM removeItemAtPath:dataPath error:nil];
+    [_forTableViewArr removeObjectAtIndex:indexPath.row];
+    
+    [[[Tools sharedTools].fullLists objectForKey:LevelSignStr] removeObjectAtIndex:indexPath.row];
+    
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *path = [docPath stringByAppendingFormat:@"/History.plist"];
+    [[Tools sharedTools].fullLists writeToFile:path atomically:NO];
     [_mTimeLevelTableView reloadData];
 }
 
