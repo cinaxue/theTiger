@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-
-@interface HistoryPowerViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,AVAudioPlayerDelegate>
+#import <MessageUI/MessageUI.h>
+@interface HistoryPowerViewController : UIViewController<UITableViewDataSource,
+                                                            UITableViewDelegate,
+                                                            AVAudioPlayerDelegate,
+                                                            UIActionSheetDelegate,
+                                                            MFMailComposeViewControllerDelegate>
 {
     AVAudioPlayer *audioPlayer;
 }

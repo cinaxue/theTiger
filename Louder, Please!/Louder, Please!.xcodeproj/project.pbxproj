@@ -302,6 +302,9 @@
 		5ED4889018ACCC0B00C9EC9B /* Voip_Closecamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED487A218ACCC0B00C9EC9B /* Voip_Closecamera@2x.png */; };
 		5ED4889118ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED487A318ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png */; };
 		5ED4889418ACCD6100C9EC9B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED4889318ACCD6100C9EC9B /* AVFoundation.framework */; };
+		A913028F18BDAB1300B701EA /* PlayRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A913028E18BDAB1300B701EA /* PlayRecordCell.m */; };
+		A913029118BDAB2300B701EA /* PlayRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A913029018BDAB2200B701EA /* PlayRecordCell.xib */; };
+		A91302D918BE322B00B701EA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91302D818BE322B00B701EA /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -640,6 +643,10 @@
 		5ED487A218ACCC0B00C9EC9B /* Voip_Closecamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voip_Closecamera@2x.png"; sourceTree = "<group>"; };
 		5ED487A318ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voip_SoundCloseHl@2x.png"; sourceTree = "<group>"; };
 		5ED4889318ACCD6100C9EC9B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A913028D18BDAB1300B701EA /* PlayRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRecordCell.h; sourceTree = "<group>"; };
+		A913028E18BDAB1300B701EA /* PlayRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayRecordCell.m; sourceTree = "<group>"; };
+		A913029018BDAB2200B701EA /* PlayRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayRecordCell.xib; sourceTree = "<group>"; };
+		A91302D818BE322B00B701EA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,6 +654,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91302D918BE322B00B701EA /* MessageUI.framework in Frameworks */,
 				5E29978318B84554008DC137 /* AudioToolbox.framework in Frameworks */,
 				5E29978118B84545008DC137 /* GLKit.framework in Frameworks */,
 				5ED4889418ACCD6100C9EC9B /* AVFoundation.framework in Frameworks */,
@@ -773,6 +781,7 @@
 		5ED4868018ACC83900C9EC9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A91302D818BE322B00B701EA /* MessageUI.framework */,
 				5E29978218B84554008DC137 /* AudioToolbox.framework */,
 				5E29978018B84545008DC137 /* GLKit.framework */,
 				5ED4889318ACCD6100C9EC9B /* AVFoundation.framework */,
@@ -800,6 +809,9 @@
 				5E3F8B0718B11C7300548397 /* HistoryPowerViewController.h */,
 				5E3F8B0818B11C7300548397 /* HistoryPowerViewController.m */,
 				5E3F8B0918B11C7300548397 /* HistoryPowerViewController.xib */,
+				A913028D18BDAB1300B701EA /* PlayRecordCell.h */,
+				A913028E18BDAB1300B701EA /* PlayRecordCell.m */,
+				A913029018BDAB2200B701EA /* PlayRecordCell.xib */,
 				5E3F8ADF18B0F6E200548397 /* Constants.h */,
 				5E3F8AE018B0F6E200548397 /* Tools.h */,
 				5E3F8AE118B0F6E200548397 /* Tools.m */,
@@ -1368,6 +1380,7 @@
 				5ED487E718ACCC0B00C9EC9B /* Expression_12@2x.png in Resources */,
 				5ED487B218ACCC0B00C9EC9B /* Addfriends_RedarSearch_Icon_Push@2x.png in Resources */,
 				5ED487BF18ACCC0B00C9EC9B /* AlbumAddQQSpaceBigHL_ios7@2x.png in Resources */,
+				A913029118BDAB2300B701EA /* PlayRecordCell.xib in Resources */,
 				5ED4880618ACCC0B00C9EC9B /* Expression_43@2x.png in Resources */,
 				5ED487E018ACCC0B00C9EC9B /* Expression_5@2x.png in Resources */,
 				5ED4882A18ACCC0B00C9EC9B /* Expression_79@2x.png in Resources */,
@@ -1456,6 +1469,7 @@
 				5E11C93218BDD01C00FFEBD3 /* SBJsonBase.m in Sources */,
 				5E29977D18B83D5B008DC137 /* TPCircularBuffer.c in Sources */,
 				5E29977C18B83D5B008DC137 /* EZRecorder.m in Sources */,
+				A913028F18BDAB1300B701EA /* PlayRecordCell.m in Sources */,
 				5ED4869218ACC83900C9EC9B /* AppDelegate.m in Sources */,
 				5E29977718B83D5B008DC137 /* EZAudioPlotGL.m in Sources */,
 				5ED4868E18ACC83900C9EC9B /* main.m in Sources */,

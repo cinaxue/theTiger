@@ -8,10 +8,11 @@
 
 #import "HistoryPowerViewController.h"
 #import "Tools.h"
-
+#import "PlayRecordCell.h"
 @interface HistoryPowerViewController ()
 {
     NSString *LevelSignStr;
+    int selectRow;
 }
 
 @end
@@ -116,19 +117,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PlayRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-        [cell setBackgroundColor:[UIColor clearColor]];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"PlayRecordCell" owner:self options:nil] lastObject];
     }
     
     NSDictionary *dic =[_forTableViewArr objectAtIndex:indexPath.row];
     
     AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[dic valueForKey:@"path"]] error:Nil];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%.2f(%.2fs)", [[dic valueForKey:KAveragePower] floatValue],player.duration];
-    cell.detailTextLabel.text =[[[dic valueForKey:@"date"] description] substringToIndex:20];
-    // Configure the cell...
+    cell.mTextLabel.text = [NSString stringWithFormat:@"%.2f(%.2fs)", [[dic valueForKey:KAveragePower] floatValue],player.duration];
+    cell.mDatailTextLabel.text =[[[dic valueForKey:@"date"] description] substringToIndex:20];
+    
+    [cell.mPlayButton addTarget:self action:@selector(forPlayButtonMethon:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.mShareButton addTarget:self action:@selector(forShareButtonMethon:) forControlEvents:UIControlEventTouchUpInside];
     
     [player release];
     return cell;
@@ -136,17 +138,35 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *diction =[_forTableViewArr objectAtIndex:indexPath.row];
-//    NSDate *date = [diction valueForKey:@"date"];
-//    NSString *caldate = [date description];
-//    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate] retain];
+    
+    /*
+     */
+    selectRow = indexPath.row +1;
+    [_mTimeLevelTableView reloadData];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == selectRow-1) {
+        return 150;
+    }
+    return 50;
+}
+
+-(void)forPlayButtonMethon:(id)sender
+{
+    
+    NSDictionary *diction =[_forTableViewArr objectAtIndex:selectRow-1];
+    //    NSDate *date = [diction valueForKey:@"date"];
+    //    NSString *caldate = [date description];
+    //    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate] retain];
     
     NSURL *url = [NSURL fileURLWithPath:[diction valueForKey:@"path"]];
-
+    
     if (!audioPlayer) {
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-
+        
         NSError *error;
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
         audioPlayer.delegate = self;
@@ -167,6 +187,33 @@
             [audioPlayer play];
         }
     }
+}
+
+-(void)forShareButtonMethon:(id)sender
+{
+    UIActionSheet *shareSheet = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"邮件分享", nil];
+    [shareSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:{
+            MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+            mail.mailComposeDelegate = self;
+            [self presentViewController:mail animated:YES completion:nil];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
