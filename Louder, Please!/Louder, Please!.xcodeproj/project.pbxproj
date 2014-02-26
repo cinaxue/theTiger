@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E11C92118BDCFF000FFEBD3 /* DataPostURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92018BDCFF000FFEBD3 /* DataPostURL.m */; };
+		5E11C93218BDD01C00FFEBD3 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92318BDD01B00FFEBD3 /* SBJsonBase.m */; };
+		5E11C93318BDD01C00FFEBD3 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92518BDD01B00FFEBD3 /* SBJsonParser.m */; };
+		5E11C93418BDD01C00FFEBD3 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92718BDD01B00FFEBD3 /* SBJsonWriter.m */; };
+		5E11C93518BDD01C00FFEBD3 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92A18BDD01C00FFEBD3 /* NSObject+SBJSON.m */; };
+		5E11C93618BDD01C00FFEBD3 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92C18BDD01C00FFEBD3 /* NSString+SBJSON.m */; };
+		5E11C93718BDD01C00FFEBD3 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C92E18BDD01C00FFEBD3 /* SBJsonStreamWriter.m */; };
+		5E11C93818BDD01C00FFEBD3 /* XmlParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C93118BDD01C00FFEBD3 /* XmlParse.m */; };
+		5E11C99D18BDD88600FFEBD3 /* UploadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C99C18BDD88600FFEBD3 /* UploadData.m */; };
 		5E29977318B83D5B008DC137 /* AEFloatConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29975B18B83D5B008DC137 /* AEFloatConverter.m */; };
 		5E29977418B83D5B008DC137 /* EZAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29975D18B83D5B008DC137 /* EZAudio.m */; };
 		5E29977518B83D5B008DC137 /* EZAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E29975F18B83D5B008DC137 /* EZAudioFile.m */; };
@@ -306,6 +315,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E11C91F18BDCFEF00FFEBD3 /* DataPostURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPostURL.h; sourceTree = "<group>"; };
+		5E11C92018BDCFF000FFEBD3 /* DataPostURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPostURL.m; sourceTree = "<group>"; };
+		5E11C92218BDD01B00FFEBD3 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		5E11C92318BDD01B00FFEBD3 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		5E11C92418BDD01B00FFEBD3 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		5E11C92518BDD01B00FFEBD3 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		5E11C92618BDD01B00FFEBD3 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		5E11C92718BDD01B00FFEBD3 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		5E11C92818BDD01B00FFEBD3 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		5E11C92918BDD01B00FFEBD3 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		5E11C92A18BDD01C00FFEBD3 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		5E11C92B18BDD01C00FFEBD3 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		5E11C92C18BDD01C00FFEBD3 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		5E11C92D18BDD01C00FFEBD3 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		5E11C92E18BDD01C00FFEBD3 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		5E11C92F18BDD01C00FFEBD3 /* SBProxyForJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBProxyForJson.h; sourceTree = "<group>"; };
+		5E11C93018BDD01C00FFEBD3 /* XmlParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlParse.h; sourceTree = "<group>"; };
+		5E11C93118BDD01C00FFEBD3 /* XmlParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlParse.m; sourceTree = "<group>"; };
+		5E11C99B18BDD88600FFEBD3 /* UploadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadData.h; sourceTree = "<group>"; };
+		5E11C99C18BDD88600FFEBD3 /* UploadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadData.m; sourceTree = "<group>"; };
 		5E29975A18B83D5B008DC137 /* AEFloatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEFloatConverter.h; sourceTree = "<group>"; };
 		5E29975B18B83D5B008DC137 /* AEFloatConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEFloatConverter.m; sourceTree = "<group>"; };
 		5E29975C18B83D5B008DC137 /* EZAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAudio.h; sourceTree = "<group>"; };
@@ -640,6 +669,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E11C93918BDD02300FFEBD3 /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				5E11C92218BDD01B00FFEBD3 /* SBJsonBase.h */,
+				5E11C92318BDD01B00FFEBD3 /* SBJsonBase.m */,
+				5E11C92418BDD01B00FFEBD3 /* SBJsonParser.h */,
+				5E11C92518BDD01B00FFEBD3 /* SBJsonParser.m */,
+				5E11C92618BDD01B00FFEBD3 /* SBJsonWriter.h */,
+				5E11C92718BDD01B00FFEBD3 /* SBJsonWriter.m */,
+				5E11C92818BDD01B00FFEBD3 /* JSON.h */,
+				5E11C92918BDD01B00FFEBD3 /* NSObject+SBJSON.h */,
+				5E11C92A18BDD01C00FFEBD3 /* NSObject+SBJSON.m */,
+				5E11C92B18BDD01C00FFEBD3 /* NSString+SBJSON.h */,
+				5E11C92C18BDD01C00FFEBD3 /* NSString+SBJSON.m */,
+				5E11C92D18BDD01C00FFEBD3 /* SBJsonStreamWriter.h */,
+				5E11C92E18BDD01C00FFEBD3 /* SBJsonStreamWriter.m */,
+				5E11C92F18BDD01C00FFEBD3 /* SBProxyForJson.h */,
+				5E11C93018BDD01C00FFEBD3 /* XmlParse.h */,
+				5E11C93118BDD01C00FFEBD3 /* XmlParse.m */,
+			);
+			name = SBJson;
+			sourceTree = "<group>";
+		};
 		5E29975918B83D5B008DC137 /* EZAudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,6 +793,10 @@
 				5ED4869318ACC83900C9EC9B /* Main.storyboard */,
 				5ED4869618ACC83900C9EC9B /* ViewController.h */,
 				5ED4869718ACC83900C9EC9B /* ViewController.m */,
+				5E11C91F18BDCFEF00FFEBD3 /* DataPostURL.h */,
+				5E11C92018BDCFF000FFEBD3 /* DataPostURL.m */,
+				5E11C99B18BDD88600FFEBD3 /* UploadData.h */,
+				5E11C99C18BDD88600FFEBD3 /* UploadData.m */,
 				5E3F8B0718B11C7300548397 /* HistoryPowerViewController.h */,
 				5E3F8B0818B11C7300548397 /* HistoryPowerViewController.m */,
 				5E3F8B0918B11C7300548397 /* HistoryPowerViewController.xib */,
@@ -748,6 +804,7 @@
 				5E3F8AE018B0F6E200548397 /* Tools.h */,
 				5E3F8AE118B0F6E200548397 /* Tools.m */,
 				5E3F8AFA18B116D000548397 /* History.plist */,
+				5E11C93918BDD02300FFEBD3 /* SBJson */,
 				5E3F8AE318B0F72E00548397 /* msgtoolong.wav */,
 				5E3F8AF918B116A300548397 /* 素材 sphere */,
 				5ED4889218ACCC1B00C9EC9B /* 素材 wechat */,
@@ -1385,18 +1442,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E29977618B83D5B008DC137 /* EZAudioPlot.m in Sources */,
+				5E11C93418BDD01C00FFEBD3 /* SBJsonWriter.m in Sources */,
 				5E29977418B83D5B008DC137 /* EZAudio.m in Sources */,
 				5E29977518B83D5B008DC137 /* EZAudioFile.m in Sources */,
+				5E11C93518BDD01C00FFEBD3 /* NSObject+SBJSON.m in Sources */,
 				5E29977B18B83D5B008DC137 /* EZPlot.m in Sources */,
+				5E11C92118BDCFF000FFEBD3 /* DataPostURL.m in Sources */,
 				5ED4869818ACC83900C9EC9B /* ViewController.m in Sources */,
 				5E29977818B83D5B008DC137 /* EZAudioPlotGLKViewController.m in Sources */,
+				5E11C93818BDD01C00FFEBD3 /* XmlParse.m in Sources */,
+				5E11C93318BDD01C00FFEBD3 /* SBJsonParser.m in Sources */,
+				5E11C93618BDD01C00FFEBD3 /* NSString+SBJSON.m in Sources */,
+				5E11C93218BDD01C00FFEBD3 /* SBJsonBase.m in Sources */,
 				5E29977D18B83D5B008DC137 /* TPCircularBuffer.c in Sources */,
 				5E29977C18B83D5B008DC137 /* EZRecorder.m in Sources */,
 				5ED4869218ACC83900C9EC9B /* AppDelegate.m in Sources */,
 				5E29977718B83D5B008DC137 /* EZAudioPlotGL.m in Sources */,
 				5ED4868E18ACC83900C9EC9B /* main.m in Sources */,
+				5E11C93718BDD01C00FFEBD3 /* SBJsonStreamWriter.m in Sources */,
 				5E29977918B83D5B008DC137 /* EZMicrophone.m in Sources */,
 				5E29977318B83D5B008DC137 /* AEFloatConverter.m in Sources */,
+				5E11C99D18BDD88600FFEBD3 /* UploadData.m in Sources */,
 				5E3F8B0A18B11C7300548397 /* HistoryPowerViewController.m in Sources */,
 				5E29977A18B83D5B008DC137 /* EZOutput.m in Sources */,
 				5E3F8AE218B0F6E200548397 /* Tools.m in Sources */,

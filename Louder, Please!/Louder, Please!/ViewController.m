@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "Tools.h"
 #import "HistoryPowerViewController.h"
+#import "DataPostURL.h"
+#import "UploadData.h"
 
 @interface ViewController ()
 {
@@ -19,6 +21,20 @@
 @implementation ViewController
 @synthesize recorder;
 @synthesize microphone;
+
+-(void) whenFinished: (id) sender
+{
+    NSLog(@"123");
+}
+
+-(void) getDataFromServer
+{
+    NSMutableData *data = [NSMutableData dataWithContentsOfURL:audioRecorder.url];
+    UploadData *getData = [[[UploadData alloc]initWithUploadMima:data] autorelease];
+    getData.delegate = self;
+    getData.Selector = @selector(whenFinished:);
+}
+
 
 - (void)viewDidLoad
 {
@@ -129,6 +145,8 @@
         averagePower = [audioRecorder averagePowerForChannel:0];
         [audioRecorder stop];
 //        [self.microphone stopFetchingAudio];
+        
+        [self getDataFromServer];
         
         // 保存到本地
         [Tools addPowerToHistoryAVAudioRecorder:audioRecorder Date:recordDate];

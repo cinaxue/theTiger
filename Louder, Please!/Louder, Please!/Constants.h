@@ -21,11 +21,14 @@ typedef NSUInteger  ScrollType;
 
 #define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
+#define KMIME_FORM_BOUNDARY @"----WebKitFormBoundary9axPyVn03lJVA0W1" // MIME FORM BOUNDARY
+
 #define KTimeLevel_4_6 @"Second4_6"
 #define KTimeLevel_6_8 @"Second6_8"
 #define KTimeLevel_8_10 @"Second8_10"
 #define KTimeLevel_10_max @"Second10_max"
 
+#define KServerAddress @"http://172.16.40.237/louderplease"           // regular server
 
 #define KAlertPowerRange_160_150 @"你确定是在用嘴发声么！！！"
 #define KAlertPowerRange_150_120 @"你TMD的有病吧，这里是比谁嘶吼声大又不是比小！"
