@@ -13,6 +13,11 @@
 {
     NSString *LevelSignStr;
     int selectRow;
+    
+    UISlider *mProgressSlider;
+    UILabel *mTimeLabel;
+    NSTimer *changeTimeLabelTimer;
+    UIButton *playMusicButton;
 }
 
 @end
@@ -129,8 +134,15 @@
     cell.mTextLabel.text = [NSString stringWithFormat:@"%.2f(%.2fs)", [[dic valueForKey:KAveragePower] floatValue],player.duration];
     cell.mDatailTextLabel.text =[[[dic valueForKey:@"date"] description] substringToIndex:20];
     
-    [cell.mPlayButton addTarget:self action:@selector(forPlayButtonMethon:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.mShareButton addTarget:self action:@selector(forShareButtonMethon:) forControlEvents:UIControlEventTouchUpInside];
+    if (indexPath.row == selectRow-1)
+    {
+        [cell.mPlayButton addTarget:self action:@selector(forPlayButtonMethon:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.mShareButton addTarget:self action:@selector(forShareButtonMethon:) forControlEvents:UIControlEventTouchUpInside];
+        mProgressSlider = [cell.mProgressSlider retain];
+        mTimeLabel = [cell.mTimeLabel retain];
+        playMusicButton = [cell.mPlayButton retain];
+    }
+    
     
     [player release];
     return cell;
@@ -138,10 +150,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    /*
-     */
+    if (audioPlayer && selectRow != indexPath.row) {
+        [audioPlayer stop];
+        [audioPlayer release];
+        audioPlayer = nil;
+    }
     selectRow = indexPath.row +1;
+    
     [_mTimeLevelTableView reloadData];
 }
 
@@ -155,7 +170,7 @@
 
 -(void)forPlayButtonMethon:(id)sender
 {
-    
+    UIButton *playButton = (UIButton *)sender;
     NSDictionary *diction =[_forTableViewArr objectAtIndex:selectRow-1];
     //    NSDate *date = [diction valueForKey:@"date"];
     //    NSString *caldate = [date description];
@@ -163,16 +178,30 @@
     
     NSURL *url = [NSURL fileURLWithPath:[diction valueForKey:@"path"]];
     
-    if (!audioPlayer) {
-        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-        
-        NSError *error;
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        audioPlayer.delegate = self;
-        audioPlayer.numberOfLoops = 0;
-        [audioPlayer play];
+    if (audioPlayer.isPlaying) {
+        [audioPlayer pause ];
+        [changeTimeLabelTimer invalidate];
+//        [changeTimeLabelTimer release];
+        changeTimeLabelTimer = nil;
+        [playButton setTitle:@"播放" forState:UIControlStateNormal];
     }else{
+        if (!audioPlayer) {
+            AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+            [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+            
+            NSError *error;
+            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+            audioPlayer.delegate = self;
+            audioPlayer.numberOfLoops = 0;
+        }
+        [audioPlayer play];
+        changeTimeLabelTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeTimeLabelMethod) userInfo:nil repeats:YES];
+        [changeTimeLabelTimer fire];
+        [playButton setTitle:@"暂停" forState:UIControlStateNormal];
+    }
+    
+    /*
+    else{
         [audioPlayer stop];
         [audioPlayer release];
         audioPlayer = nil;
@@ -186,7 +215,15 @@
             audioPlayer.numberOfLoops = 0;
             [audioPlayer play];
         }
-    }
+    }*/
+}
+
+-(void)changeTimeLabelMethod
+{
+    mProgressSlider.value = audioPlayer.currentTime/audioPlayer.duration;
+//    NSString *current = [NSString stringWithFormat:audioPlayer.currentTime/];
+    mTimeLabel.text = [NSString stringWithFormat:@"%.0f                                                            %.0f",audioPlayer.currentTime,audioPlayer.duration];
+    NSLog(@"test");
 }
 
 -(void)forShareButtonMethon:(id)sender
@@ -218,6 +255,11 @@
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
+    [playMusicButton setTitle:@"播放" forState:UIControlStateNormal];
+    [changeTimeLabelTimer invalidate];
+    changeTimeLabelTimer = nil;
+    mTimeLabel.text = nil;
+    mProgressSlider.value = 0;
     [audioPlayer stop];
     [audioPlayer release];
     audioPlayer = nil;
