@@ -41,11 +41,11 @@
     [super viewDidLoad];
     
 //    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];  // test json
-    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];
-//
-    DataPostURL *getData = [[[DataPostURL alloc]initWithURL:url] autorelease];
-    getData.delegate = self;
-    getData.Selector = @selector(whenFinished:);
+//    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];
+////
+//    DataPostURL *getData = [[[DataPostURL alloc]initWithURL:url] autorelease];
+//    getData.delegate = self;
+//    getData.Selector = @selector(whenFinished:);
     
 	// Do any additional setup after loading the view, typically from a nib.
     recordEncoding = ENC_AAC;
@@ -152,7 +152,8 @@
         [audioRecorder stop];
 //        [self.microphone stopFetchingAudio];
         
-        [self getDataFromServer];
+        // 测试上传音频到服务器
+//        [self getDataFromServer];
         
         // 保存到本地
         [Tools addPowerToHistoryAVAudioRecorder:audioRecorder Date:recordDate];
