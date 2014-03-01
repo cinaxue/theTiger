@@ -23,6 +23,11 @@ typedef NSUInteger  ScrollType;
 
 #define KMIME_FORM_BOUNDARY @"----WebKitFormBoundary9axPyVn03lJVA0W1" // MIME FORM BOUNDARY
 
+#define ErrorMessage_Error @"错误提示"
+#define ErrorMessage_Success @"操作成功"
+#define ErrorMessage_Normal @"有哇提示"
+
+
 #define KTimeLevel_4_6 @"Second4_6"
 #define KTimeLevel_6_8 @"Second6_8"
 #define KTimeLevel_8_10 @"Second8_10"

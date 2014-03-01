@@ -40,6 +40,13 @@
 {
     [super viewDidLoad];
     
+//    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];  // test json
+    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];
+//
+    DataPostURL *getData = [[[DataPostURL alloc]initWithURL:url] autorelease];
+    getData.delegate = self;
+    getData.Selector = @selector(whenFinished:);
+    
 	// Do any additional setup after loading the view, typically from a nib.
     recordEncoding = ENC_AAC;
     self.microphone = [EZMicrophone microphoneWithDelegate:self];
@@ -131,7 +138,6 @@
     
     [recordTimer invalidate];
     _mRecordDurationLabel.text = @"";
-    
     
     // 取消[self Perform]的函数的死循环，隐藏正在录制的动画
     [NSObject cancelPreviousPerformRequestsWithTarget:self];

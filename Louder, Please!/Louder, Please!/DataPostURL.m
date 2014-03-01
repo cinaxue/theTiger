@@ -20,8 +20,27 @@
     //请求发送到的路径
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:self.mServerURL];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest addValue:@"1111111111" forHTTPHeaderField:@"udid"];
-    [urlRequest addValue:@"1111111111" forHTTPHeaderField:@"deviceid"];
+    
+    NSString *post = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&date=%@&sex=%@",[NSString stringWithFormat:@"testname%d", arc4random()%100],@"testname",@"testname@163.com",@"",[NSString stringWithFormat:@"%d", arc4random()%2]];
+    NSLog(@"post:%@",post);
+
+    //将NSSrring格式的参数转换格式为NSData，POST提交必须用NSData数据。
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    //计算POST提交数据的长度
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    NSLog(@"postLength=%@",postLength);
+    //定义NSMutableURLRequest
+
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [urlRequest setHTTPBody:postData];
+
+//    [urlRequest addValue:[NSString stringWithFormat:@"testname%d", arc4random()%100] forHTTPHeaderField:@"username"];
+//    [urlRequest addValue:@"testname" forHTTPHeaderField:@"password"];
+//    [urlRequest addValue:@"testname@163.com" forHTTPHeaderField:@"email"];
+//    [urlRequest addValue:@"" forHTTPHeaderField:@"date"];
+//    [urlRequest addValue:[NSString stringWithFormat:@"%d", arc4random()%2] forHTTPHeaderField:@"sex"];
+//    [urlRequest addValue:@"1111111111" forHTTPHeaderField:@"deviceid"];
 //    [urlRequest setHTTPBody: [mPostContent dataUsingEncoding:NSUTF8StringEncoding]];
 
     theConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];

@@ -23,9 +23,16 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setValue:@"video/mp4" forHTTPHeaderField:@"Content-Type"];
-    [urlRequest setValue:[NSString stringWithFormat:@"%lu",(unsigned long)self.mMimaString.length] forHTTPHeaderField:@"Content-Length"];
-    [urlRequest setValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
+    NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",KMIME_FORM_BOUNDARY];
+    //设置HTTPHeader
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[self.mMimaString length]];
+    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    [urlRequest setValue:content forHTTPHeaderField:@"Content-Type"];
+    [urlRequest addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",KMIME_FORM_BOUNDARY] forHTTPHeaderField:@"CONTENT_TYPE"];
+    [urlRequest addValue:@"UTF-8" forHTTPHeaderField:@"HTTP_ACCEPT_CHARSET"];
+
     [urlRequest setHTTPBody:self.mMimaString];
     
     theConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
