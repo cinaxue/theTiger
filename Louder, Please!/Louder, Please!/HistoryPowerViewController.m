@@ -11,25 +11,19 @@
 #import "PlayRecordCell.h"
 @interface HistoryPowerViewController ()
 {
+    //tableViewCell 中的属性
     NSString *LevelSignStr;
-    int selectRow;
-    
     UISlider *mProgressSlider;
     UILabel *mTimeLabel;
     NSTimer *changeTimeLabelTimer;
     UIButton *playMusicButton;
+    int selectRow;
 }
 
 @end
 
 @implementation HistoryPowerViewController
 
-
-
--(void)goBack:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -46,11 +40,11 @@
     LevelSignStr = KTimeLevel_4_6;
 }
 
-- (void)didReceiveMemoryWarning
+-(void)goBack:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 - (IBAction)forTimeLevelSegmented:(id)sender
 {
@@ -88,23 +82,71 @@
 {
     _mTimeLevelTableView.editing = !_mTimeLevelTableView.editing;
 }
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)forPlayButtonMethon:(id)sender
 {
-    NSDictionary *diction =[_forTableViewArr objectAtIndex:indexPath.row];
-    NSString *dataPath = [diction valueForKey:@"path"];
+    UIButton *playButton = (UIButton *)sender;
+    NSDictionary *diction =[_forTableViewArr objectAtIndex:selectRow-1];
+    //    NSDate *date = [diction valueForKey:@"date"];
+    //    NSString *caldate = [date description];
+    //    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate] retain];
     
-    NSFileManager *fileM = [NSFileManager defaultManager];
-    [fileM removeItemAtPath:dataPath error:nil];
-    [_forTableViewArr removeObjectAtIndex:indexPath.row];
+    NSURL *url = [NSURL fileURLWithPath:[diction valueForKey:@"path"]];
     
-    [[[Tools sharedTools].fullLists objectForKey:LevelSignStr] removeObjectAtIndex:indexPath.row];
+    if (audioPlayer.isPlaying) {
+        [audioPlayer pause ];
+        [changeTimeLabelTimer invalidate];
+        //        [changeTimeLabelTimer release];
+        changeTimeLabelTimer = nil;
+        [playButton setTitle:@"播放" forState:UIControlStateNormal];
+    }else{
+        if (!audioPlayer) {
+            AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+            [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+            
+            NSError *error;
+            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+            audioPlayer.delegate = self;
+            audioPlayer.numberOfLoops = 0;
+        }
+        [audioPlayer play];
+        changeTimeLabelTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeTimeLabelMethod) userInfo:nil repeats:YES];
+        [changeTimeLabelTimer fire];
+        [playButton setTitle:@"暂停" forState:UIControlStateNormal];
+    }
     
-    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *path = [docPath stringByAppendingFormat:@"/History.plist"];
-    [[Tools sharedTools].fullLists writeToFile:path atomically:NO];
-    [_mTimeLevelTableView reloadData];
+    /*
+     else{
+     [audioPlayer stop];
+     [audioPlayer release];
+     audioPlayer = nil;
+     
+     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+     if (![[diction valueForKey:@"path"] isEqualToString:audioPlayer.url.path]) {
+     NSError *error;
+     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+     audioPlayer.delegate = self;
+     audioPlayer.numberOfLoops = 0;
+     [audioPlayer play];
+     }
+     }*/
 }
+
+-(void)changeTimeLabelMethod
+{
+    mProgressSlider.value = audioPlayer.currentTime/audioPlayer.duration;
+    //    NSString *current = [NSString stringWithFormat:audioPlayer.currentTime/];
+    mTimeLabel.text = [NSString stringWithFormat:@"%.0f                                                            %.0f",audioPlayer.currentTime,audioPlayer.duration];
+    NSLog(@"test");
+}
+
+-(void)forShareButtonMethon:(id)sender
+{
+    UIActionSheet *shareSheet = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"邮件分享", nil];
+    [shareSheet showInView:self.view];
+}
+
+#pragma mark UITableView的代理方法
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -115,7 +157,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    [[Tools sharedTools].fullLists valueForKey:KLevel_key4_6].count;
-    
     return _forTableViewArr.count;
 }
 
@@ -148,6 +189,23 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *diction =[_forTableViewArr objectAtIndex:indexPath.row];
+    NSString *dataPath = [diction valueForKey:@"path"];
+    
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    [fileM removeItemAtPath:dataPath error:nil];
+    [_forTableViewArr removeObjectAtIndex:indexPath.row];
+    
+    [[[Tools sharedTools].fullLists objectForKey:LevelSignStr] removeObjectAtIndex:indexPath.row];
+    
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *path = [docPath stringByAppendingFormat:@"/History.plist"];
+    [[Tools sharedTools].fullLists writeToFile:path atomically:NO];
+    [_mTimeLevelTableView reloadData];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (audioPlayer && selectRow != indexPath.row) {
@@ -168,70 +226,9 @@
     return 50;
 }
 
--(void)forPlayButtonMethon:(id)sender
-{
-    UIButton *playButton = (UIButton *)sender;
-    NSDictionary *diction =[_forTableViewArr objectAtIndex:selectRow-1];
-    //    NSDate *date = [diction valueForKey:@"date"];
-    //    NSString *caldate = [date description];
-    //    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate] retain];
-    
-    NSURL *url = [NSURL fileURLWithPath:[diction valueForKey:@"path"]];
-    
-    if (audioPlayer.isPlaying) {
-        [audioPlayer pause ];
-        [changeTimeLabelTimer invalidate];
-//        [changeTimeLabelTimer release];
-        changeTimeLabelTimer = nil;
-        [playButton setTitle:@"播放" forState:UIControlStateNormal];
-    }else{
-        if (!audioPlayer) {
-            AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-            [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-            
-            NSError *error;
-            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-            audioPlayer.delegate = self;
-            audioPlayer.numberOfLoops = 0;
-        }
-        [audioPlayer play];
-        changeTimeLabelTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeTimeLabelMethod) userInfo:nil repeats:YES];
-        [changeTimeLabelTimer fire];
-        [playButton setTitle:@"暂停" forState:UIControlStateNormal];
-    }
-    
-    /*
-    else{
-        [audioPlayer stop];
-        [audioPlayer release];
-        audioPlayer = nil;
-        
-        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-        if (![[diction valueForKey:@"path"] isEqualToString:audioPlayer.url.path]) {
-            NSError *error;
-            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-            audioPlayer.delegate = self;
-            audioPlayer.numberOfLoops = 0;
-            [audioPlayer play];
-        }
-    }*/
-}
 
--(void)changeTimeLabelMethod
-{
-    mProgressSlider.value = audioPlayer.currentTime/audioPlayer.duration;
-//    NSString *current = [NSString stringWithFormat:audioPlayer.currentTime/];
-    mTimeLabel.text = [NSString stringWithFormat:@"%.0f                                                            %.0f",audioPlayer.currentTime,audioPlayer.duration];
-    NSLog(@"test");
-}
 
--(void)forShareButtonMethon:(id)sender
-{
-    UIActionSheet *shareSheet = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"邮件分享", nil];
-    [shareSheet showInView:self.view];
-}
-
+#pragma mark UIActionSheet的代理方法
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
@@ -247,12 +244,13 @@
     }
     
 }
-
+#pragma mark 邮件的代理方法
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark AVAudoPlayer的代理方法
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     [playMusicButton setTitle:@"播放" forState:UIControlStateNormal];
@@ -265,13 +263,20 @@
     audioPlayer = nil;
 }
 
+#pragma mark didReceiveMemoryWarning
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark dealloc
 -(void)dealloc
 {
     if (audioPlayer) {
         [audioPlayer release];
         audioPlayer = nil;
     }
-    
     [_mTimeLevelTableView release];
     [super dealloc];
 }

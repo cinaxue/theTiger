@@ -796,30 +796,15 @@
 		5ED4868718ACC83900C9EC9B /* Louder, Please! */ = {
 			isa = PBXGroup;
 			children = (
-				5E29975918B83D5B008DC137 /* EZAudio */,
-				5ED4869018ACC83900C9EC9B /* AppDelegate.h */,
-				5ED4869118ACC83900C9EC9B /* AppDelegate.m */,
-				5ED4869318ACC83900C9EC9B /* Main.storyboard */,
-				5ED4869618ACC83900C9EC9B /* ViewController.h */,
-				5ED4869718ACC83900C9EC9B /* ViewController.m */,
-				5E11C91F18BDCFEF00FFEBD3 /* DataPostURL.h */,
-				5E11C92018BDCFF000FFEBD3 /* DataPostURL.m */,
-				5E11C99B18BDD88600FFEBD3 /* UploadData.h */,
-				5E11C99C18BDD88600FFEBD3 /* UploadData.m */,
-				5E3F8B0718B11C7300548397 /* HistoryPowerViewController.h */,
-				5E3F8B0818B11C7300548397 /* HistoryPowerViewController.m */,
-				5E3F8B0918B11C7300548397 /* HistoryPowerViewController.xib */,
-				A913028D18BDAB1300B701EA /* PlayRecordCell.h */,
-				A913028E18BDAB1300B701EA /* PlayRecordCell.m */,
-				A913029018BDAB2200B701EA /* PlayRecordCell.xib */,
-				5E3F8ADF18B0F6E200548397 /* Constants.h */,
-				5E3F8AE018B0F6E200548397 /* Tools.h */,
-				5E3F8AE118B0F6E200548397 /* Tools.m */,
-				5E3F8AFA18B116D000548397 /* History.plist */,
-				5E11C93918BDD02300FFEBD3 /* SBJson */,
-				5E3F8AE318B0F72E00548397 /* msgtoolong.wav */,
+				A9EA3B1818D6B571009118A9 /* ViewControllers */,
+				A9EA3B1618D6B4FD009118A9 /* 自定义视图 */,
+				A9EA3B1718D6B537009118A9 /* 功能函数类 */,
+				A9EA3B1318D6B43A009118A9 /* AppDelegate */,
+				A9EA3B1218D6B425009118A9 /* 第三方类库 */,
 				5E3F8AF918B116A300548397 /* 素材 sphere */,
 				5ED4889218ACCC1B00C9EC9B /* 素材 wechat */,
+				5E3F8AFA18B116D000548397 /* History.plist */,
+				5E3F8AE318B0F72E00548397 /* msgtoolong.wav */,
 				5ED4869918ACC83900C9EC9B /* Images.xcassets */,
 				5ED4868818ACC83900C9EC9B /* Supporting Files */,
 			);
@@ -1098,6 +1083,77 @@
 				5ED487A318ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png */,
 			);
 			name = "素材 wechat";
+			sourceTree = "<group>";
+		};
+		A9EA3B1218D6B425009118A9 /* 第三方类库 */ = {
+			isa = PBXGroup;
+			children = (
+				5E11C93918BDD02300FFEBD3 /* SBJson */,
+				5E29975918B83D5B008DC137 /* EZAudio */,
+			);
+			name = "第三方类库";
+			sourceTree = "<group>";
+		};
+		A9EA3B1318D6B43A009118A9 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5ED4869018ACC83900C9EC9B /* AppDelegate.h */,
+				5ED4869118ACC83900C9EC9B /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		A9EA3B1418D6B466009118A9 /* 第一层 */ = {
+			isa = PBXGroup;
+			children = (
+				5ED4869618ACC83900C9EC9B /* ViewController.h */,
+				5ED4869718ACC83900C9EC9B /* ViewController.m */,
+				5ED4869318ACC83900C9EC9B /* Main.storyboard */,
+			);
+			name = "第一层";
+			sourceTree = "<group>";
+		};
+		A9EA3B1518D6B48E009118A9 /* 第二层 */ = {
+			isa = PBXGroup;
+			children = (
+				5E3F8B0718B11C7300548397 /* HistoryPowerViewController.h */,
+				5E3F8B0818B11C7300548397 /* HistoryPowerViewController.m */,
+				5E3F8B0918B11C7300548397 /* HistoryPowerViewController.xib */,
+			);
+			name = "第二层";
+			sourceTree = "<group>";
+		};
+		A9EA3B1618D6B4FD009118A9 /* 自定义视图 */ = {
+			isa = PBXGroup;
+			children = (
+				A913028D18BDAB1300B701EA /* PlayRecordCell.h */,
+				A913028E18BDAB1300B701EA /* PlayRecordCell.m */,
+				A913029018BDAB2200B701EA /* PlayRecordCell.xib */,
+			);
+			name = "自定义视图";
+			sourceTree = "<group>";
+		};
+		A9EA3B1718D6B537009118A9 /* 功能函数类 */ = {
+			isa = PBXGroup;
+			children = (
+				5E3F8ADF18B0F6E200548397 /* Constants.h */,
+				5E3F8AE018B0F6E200548397 /* Tools.h */,
+				5E3F8AE118B0F6E200548397 /* Tools.m */,
+				5E11C91F18BDCFEF00FFEBD3 /* DataPostURL.h */,
+				5E11C92018BDCFF000FFEBD3 /* DataPostURL.m */,
+				5E11C99B18BDD88600FFEBD3 /* UploadData.h */,
+				5E11C99C18BDD88600FFEBD3 /* UploadData.m */,
+			);
+			name = "功能函数类";
+			sourceTree = "<group>";
+		};
+		A9EA3B1818D6B571009118A9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A9EA3B1418D6B466009118A9 /* 第一层 */,
+				A9EA3B1518D6B48E009118A9 /* 第二层 */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
