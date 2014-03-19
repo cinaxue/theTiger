@@ -30,7 +30,7 @@
 -(void) getDataFromServer
 {
     NSMutableData *data = [NSMutableData dataWithContentsOfURL:audioRecorder.url];
-    UploadData *getData = [[[UploadData alloc]initWithUploadMima:data] autorelease];
+    UploadData *getData = [[[UploadData alloc]initWithUploadMima:audioRecorder] autorelease];
     getData.delegate = self;
     getData.Selector = @selector(whenFinished:);
 }
@@ -153,7 +153,7 @@
 //        [self.microphone stopFetchingAudio];
         
         // 测试上传音频到服务器
-//        [self getDataFromServer];
+        [self getDataFromServer];
         
         // 保存到本地
         [Tools addPowerToHistoryAVAudioRecorder:audioRecorder Date:recordDate];

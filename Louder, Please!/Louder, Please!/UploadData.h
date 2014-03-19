@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface UploadData : NSObject<NSURLConnectionDataDelegate,NSURLConnectionDelegate>
 {
@@ -17,14 +18,14 @@
     NSURLConnection *theConnection;
 }
 
-@property (nonatomic, retain) NSMutableData *mMimaString;
+@property (nonatomic, retain) AVAudioRecorder *mMimaString;
 @property (nonatomic, retain) NSString *mDownloadFileName;
 
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, assign) SEL Selector;
 @property (nonatomic, retain) NSMutableDictionary* resultList;
 
--(id) initWithUploadMima:(NSMutableData*) MimaString;
+-(id) initWithUploadMima:(AVAudioRecorder*) MimaString;
 -(id) initWithDownloadFileName:(NSString*) FileName;
 
 @end

@@ -23,19 +23,14 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
     [urlRequest setHTTPMethod:@"POST"];
-    NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",KMIME_FORM_BOUNDARY];
-    //设置HTTPHeader
-    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[self.mMimaString length]];
-    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    
-    [urlRequest setValue:content forHTTPHeaderField:@"Content-Type"];
-    [urlRequest addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",KMIME_FORM_BOUNDARY] forHTTPHeaderField:@"CONTENT_TYPE"];
-    [urlRequest addValue:@"UTF-8" forHTTPHeaderField:@"HTTP_ACCEPT_CHARSET"];
+    NSFileHandle* handler = [NSFileHandle fileHandleForReadingAtPath:self.mMimaString.url.path];
 
-    [urlRequest setHTTPBody:self.mMimaString];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setValue:@"/zip" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest setValue:[NSString stringWithFormat:@"%d",[[NSData dataWithContentsOfURL:self.mMimaString.url] length]] forHTTPHeaderField:@"Content-Length"];
+    [urlRequest setValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
+    [urlRequest setHTTPBody:[NSData dataWithContentsOfURL:self.mMimaString.url]];
     
-    theConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 }
 
 //调用成功，获得soap信息
@@ -78,7 +73,7 @@
         [results release];
 }
 
--(id)initWithUploadMima:(NSMutableData*)MimaString
+-(id)initWithUploadMima:(AVAudioRecorder*) MimaString
 {
     self = [super init];
     if (self) {
