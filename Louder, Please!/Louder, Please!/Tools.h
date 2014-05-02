@@ -20,7 +20,7 @@
 @property(nonatomic, assign) SEL selector;
 
 +(void) addPowerToHistoryAVAudioRecorder:(AVAudioRecorder*) audioRecorder Date:(NSDate*) date;
-
++ (id)getJsonData:(id)obj;
 +(NSString *)getDocumentFilePath;
 + (Tools*) sharedTools;
 + (void) playNextSound;

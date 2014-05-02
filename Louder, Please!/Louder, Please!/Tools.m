@@ -49,6 +49,12 @@ static Tools *sharedTools;
     return self;
 }
 
++ (id)getJsonData:(id)obj
+{
+    NSError *error = nil;
+    return [NSJSONSerialization JSONObjectWithData:obj options:noErr error:&error];
+}
+
 +(void)addPowerToHistoryAVAudioRecorder:(AVAudioRecorder *)audioRecorder Date:(NSDate *)date
 {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
