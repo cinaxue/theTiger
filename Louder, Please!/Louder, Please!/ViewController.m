@@ -41,11 +41,11 @@
     [super viewDidLoad];
     
 //    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];  // test json
-//    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];
+    NSURL *url = [NSURL URLWithString:@"http://172.16.40.237/louderplease/registeruser.php"];
 ////
-//    DataPostURL *getData = [[[DataPostURL alloc]initWithURL:url] autorelease];
-//    getData.delegate = self;
-//    getData.Selector = @selector(whenFinished:);
+    DataPostURL *getData = [[[DataPostURL alloc]initWithURL:url] autorelease];
+    getData.delegate = self;
+    getData.Selector = @selector(whenFinished:);
     
 	// Do any additional setup after loading the view, typically from a nib.
     recordEncoding = ENC_AAC;
@@ -101,8 +101,9 @@
     // Create a new dated file
     
     recordDate = [[NSDate dateWithTimeIntervalSinceNow:0] retain];
-    NSString *caldate = [recordDate description];
-    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, caldate] retain];
+    
+    
+    NSString *recorderFilePath = [[NSString stringWithFormat:@"%@/%@.caf", DOCUMENTS_FOLDER, [Tools formatDate:recordDate]] retain];
  
     NSURL *url = [NSURL fileURLWithPath:recorderFilePath];
     
@@ -135,7 +136,6 @@
 
 -(IBAction) stopRecording
 {
-    
     [recordTimer invalidate];
     _mRecordDurationLabel.text = @"";
     
@@ -157,6 +157,9 @@
         
         // 保存到本地
         [Tools addPowerToHistoryAVAudioRecorder:audioRecorder Date:recordDate];
+        
+        // 上传到服务器
+//        [ASIRequestHttpController uploadPath:audioRecorder.url.path userID:<#(NSString *)#> method:<#(NSString *)#> success:<#^(id responseObj)success#> failure:<#^(id responseObject)failure#>]
         [recordDate release];
     }
     

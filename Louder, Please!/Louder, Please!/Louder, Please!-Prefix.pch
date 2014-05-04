@@ -13,5 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-#import "Tools.h"
+    #import "Tools.h"
+#import "UserInfo.h"
+//#import "ASIRequestHttpController.h"
+
 #endif

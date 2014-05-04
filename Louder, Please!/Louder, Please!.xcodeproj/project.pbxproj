@@ -319,6 +319,11 @@
 		5ED4889018ACCC0B00C9EC9B /* Voip_Closecamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED487A218ACCC0B00C9EC9B /* Voip_Closecamera@2x.png */; };
 		5ED4889118ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED487A318ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png */; };
 		5ED4889418ACCD6100C9EC9B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED4889318ACCD6100C9EC9B /* AVFoundation.framework */; };
+		5EE86EB219150977007FC742 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86EB119150977007FC742 /* UserInfo.m */; };
+		5EE86EBC19150EC0007FC742 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86EBA19150EC0007FC742 /* LoginViewController.m */; };
+		5EE86EBD19150EC0007FC742 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE86EBB19150EC0007FC742 /* LoginViewController.xib */; };
+		5EE86EC119150ECC007FC742 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86EBF19150ECC007FC742 /* RegisterViewController.m */; };
+		5EE86EC219150ECC007FC742 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE86EC019150ECC007FC742 /* RegisterViewController.xib */; };
 		A913028F18BDAB1300B701EA /* PlayRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A913028E18BDAB1300B701EA /* PlayRecordCell.m */; };
 		A913029118BDAB2300B701EA /* PlayRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A913029018BDAB2200B701EA /* PlayRecordCell.xib */; };
 		A91302D918BE322B00B701EA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91302D818BE322B00B701EA /* MessageUI.framework */; };
@@ -691,6 +696,14 @@
 		5ED487A218ACCC0B00C9EC9B /* Voip_Closecamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voip_Closecamera@2x.png"; sourceTree = "<group>"; };
 		5ED487A318ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Voip_SoundCloseHl@2x.png"; sourceTree = "<group>"; };
 		5ED4889318ACCD6100C9EC9B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5EE86EB019150977007FC742 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		5EE86EB119150977007FC742 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		5EE86EB919150EC0007FC742 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		5EE86EBA19150EC0007FC742 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5EE86EBB19150EC0007FC742 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5EE86EBE19150ECC007FC742 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		5EE86EBF19150ECC007FC742 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		5EE86EC019150ECC007FC742 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		A913028D18BDAB1300B701EA /* PlayRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRecordCell.h; sourceTree = "<group>"; };
 		A913028E18BDAB1300B701EA /* PlayRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayRecordCell.m; sourceTree = "<group>"; };
 		A913029018BDAB2200B701EA /* PlayRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayRecordCell.xib; sourceTree = "<group>"; };
@@ -843,6 +856,15 @@
 			name = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
+		5E99B0B719146394001BA9E4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5E3F8AF918B116A300548397 /* 素材 sphere */,
+				5ED4889218ACCC1B00C9EC9B /* 素材 wechat */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		5ED4867518ACC83900C9EC9B = {
 			isa = PBXGroup;
 			children = (
@@ -887,13 +909,12 @@
 			isa = PBXGroup;
 			children = (
 				5ED486A618ACC83900C9EC9B /* Louder, Please!Tests */,
-				A9EA3B1818D6B571009118A9 /* ViewControllers */,
+				A9EA3B1418D6B466009118A9 /* 首页 */,
+				A9EA3B1518D6B48E009118A9 /* 列表 */,
 				A9EA3B1618D6B4FD009118A9 /* 自定义视图 */,
 				A9EA3B1718D6B537009118A9 /* Tools */,
 				A9EA3B1318D6B43A009118A9 /* AppDelegate */,
-				A9EA3B1218D6B425009118A9 /* 第三方类库 */,
-				5E3F8AF918B116A300548397 /* 素材 sphere */,
-				5ED4889218ACCC1B00C9EC9B /* 素材 wechat */,
+				5E99B0B719146394001BA9E4 /* Resource */,
 				5E3F8AFA18B116D000548397 /* History.plist */,
 				5E3F8AE318B0F72E00548397 /* msgtoolong.wav */,
 				5ED4869918ACC83900C9EC9B /* Images.xcassets */,
@@ -1195,24 +1216,30 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
-		A9EA3B1418D6B466009118A9 /* 第一层 */ = {
+		A9EA3B1418D6B466009118A9 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
 				5ED4869618ACC83900C9EC9B /* ViewController.h */,
 				5ED4869718ACC83900C9EC9B /* ViewController.m */,
 				5ED4869318ACC83900C9EC9B /* Main.storyboard */,
 			);
-			name = "第一层";
+			name = "首页";
 			sourceTree = "<group>";
 		};
-		A9EA3B1518D6B48E009118A9 /* 第二层 */ = {
+		A9EA3B1518D6B48E009118A9 /* 列表 */ = {
 			isa = PBXGroup;
 			children = (
 				5E3F8B0718B11C7300548397 /* HistoryPowerViewController.h */,
 				5E3F8B0818B11C7300548397 /* HistoryPowerViewController.m */,
 				5E3F8B0918B11C7300548397 /* HistoryPowerViewController.xib */,
+				5EE86EB919150EC0007FC742 /* LoginViewController.h */,
+				5EE86EBA19150EC0007FC742 /* LoginViewController.m */,
+				5EE86EBB19150EC0007FC742 /* LoginViewController.xib */,
+				5EE86EBE19150ECC007FC742 /* RegisterViewController.h */,
+				5EE86EBF19150ECC007FC742 /* RegisterViewController.m */,
+				5EE86EC019150ECC007FC742 /* RegisterViewController.xib */,
 			);
-			name = "第二层";
+			name = "列表";
 			sourceTree = "<group>";
 		};
 		A9EA3B1618D6B4FD009118A9 /* 自定义视图 */ = {
@@ -1233,21 +1260,15 @@
 				5E3F8AE118B0F6E200548397 /* Tools.m */,
 				5E484DE5191373B500F90EBD /* ASIRequestHttpController.h */,
 				5E484DE6191373B500F90EBD /* ASIRequestHttpController.m */,
+				5EE86EB019150977007FC742 /* UserInfo.h */,
+				5EE86EB119150977007FC742 /* UserInfo.m */,
 				5E11C91F18BDCFEF00FFEBD3 /* DataPostURL.h */,
 				5E11C92018BDCFF000FFEBD3 /* DataPostURL.m */,
 				5E11C99B18BDD88600FFEBD3 /* UploadData.h */,
 				5E11C99C18BDD88600FFEBD3 /* UploadData.m */,
+				A9EA3B1218D6B425009118A9 /* 第三方类库 */,
 			);
 			name = Tools;
-			sourceTree = "<group>";
-		};
-		A9EA3B1818D6B571009118A9 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				A9EA3B1418D6B466009118A9 /* 第一层 */,
-				A9EA3B1518D6B48E009118A9 /* 第二层 */,
-			);
-			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1532,6 +1553,7 @@
 				5ED487BF18ACCC0B00C9EC9B /* AlbumAddQQSpaceBigHL_ios7@2x.png in Resources */,
 				A913029118BDAB2300B701EA /* PlayRecordCell.xib in Resources */,
 				5ED4880618ACCC0B00C9EC9B /* Expression_43@2x.png in Resources */,
+				5EE86EBD19150EC0007FC742 /* LoginViewController.xib in Resources */,
 				5ED487E018ACCC0B00C9EC9B /* Expression_5@2x.png in Resources */,
 				5ED4882A18ACCC0B00C9EC9B /* Expression_79@2x.png in Resources */,
 				5ED4885C18ACCC0B00C9EC9B /* VoiceSearchFeedback008_ios7@2x.png in Resources */,
@@ -1580,6 +1602,7 @@
 				5ED487DF18ACCC0B00C9EC9B /* Expression_4@2x.png in Resources */,
 				5ED487B018ACCC0B00C9EC9B /* Action_Privacy@2x.png in Resources */,
 				5ED487A418ACCC0B00C9EC9B /* Action_Female_ios7@2x.png in Resources */,
+				5EE86EC219150ECC007FC742 /* RegisterViewController.xib in Resources */,
 				5ED4869518ACC83900C9EC9B /* Main.storyboard in Resources */,
 				5ED4881C18ACCC0B00C9EC9B /* Expression_65@2x.png in Resources */,
 				5ED4886E18ACCC0B00C9EC9B /* VoiceSearchFeedback017_ios7@2x.png in Resources */,
@@ -1622,9 +1645,11 @@
 				5E11C93218BDD01C00FFEBD3 /* SBJsonBase.m in Sources */,
 				5E29977D18B83D5B008DC137 /* TPCircularBuffer.c in Sources */,
 				5E29977C18B83D5B008DC137 /* EZRecorder.m in Sources */,
+				5EE86EB219150977007FC742 /* UserInfo.m in Sources */,
 				5E484DFB1913763900F90EBD /* ASIFormDataRequest.m in Sources */,
 				5E484DFD1913763900F90EBD /* ASINetworkQueue.m in Sources */,
 				5E484DFC1913763900F90EBD /* ASIHTTPRequest.m in Sources */,
+				5EE86EC119150ECC007FC742 /* RegisterViewController.m in Sources */,
 				A913028F18BDAB1300B701EA /* PlayRecordCell.m in Sources */,
 				5ED4869218ACC83900C9EC9B /* AppDelegate.m in Sources */,
 				5E29977718B83D5B008DC137 /* EZAudioPlotGL.m in Sources */,
@@ -1637,6 +1662,7 @@
 				5E29977318B83D5B008DC137 /* AEFloatConverter.m in Sources */,
 				5E11C99D18BDD88600FFEBD3 /* UploadData.m in Sources */,
 				5E3F8B0A18B11C7300548397 /* HistoryPowerViewController.m in Sources */,
+				5EE86EBC19150EC0007FC742 /* LoginViewController.m in Sources */,
 				5E484DFF1913763900F90EBD /* ASIDataCompressor.m in Sources */,
 				5E29977A18B83D5B008DC137 /* EZOutput.m in Sources */,
 				5E3F8AE218B0F6E200548397 /* Tools.m in Sources */,

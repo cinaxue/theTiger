@@ -160,8 +160,7 @@
     return _forTableViewArr.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     PlayRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -173,7 +172,7 @@
     AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[dic valueForKey:@"path"]] error:Nil];
     
     cell.mTextLabel.text = [NSString stringWithFormat:@"%.2f(%.2fs)", [[dic valueForKey:KAveragePower] floatValue],player.duration];
-    cell.mDatailTextLabel.text =[[[dic valueForKey:@"date"] description] substringToIndex:20];
+    cell.mDatailTextLabel.text =[dic valueForKey:@"date"];
     
     if (indexPath.row == selectRow-1)
     {

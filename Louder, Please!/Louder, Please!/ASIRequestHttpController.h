@@ -21,8 +21,11 @@ typedef void (^failureBlock)(id responseObj);
 //通用Post Method
 + (void)postMethodPath:(NSString *)urlString parameters:(NSDictionary *)parameters success:(void(^)(id responseObj))success failure:(void(^)(id responseObject))failure;
 
++ (void) registerUserId:(NSString *)userID password:(NSString *)password success:(void(^)(id responseObj))success failure:(void(^)(id responseObject))failure;
+
+
 // 上传音频
-+ (void)postMethodPath:(NSString *)urlString path:(NSString*) path success:(void(^)(id responseObj))success failure:(void(^)(id responseObject))failure;
++ (void)uploadPath:(NSString*) path userID:(NSString*) userID method:(NSString *)method success:(void(^)(id responseObj))success failure:(void(^)(id responseObject))failure;
 
 
 @end

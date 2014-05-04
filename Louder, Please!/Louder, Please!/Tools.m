@@ -49,6 +49,28 @@ static Tools *sharedTools;
     return self;
 }
 
++(NSDate*) dateFromString:(NSString *) stringDate
+{
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateFormat:@"yyyy'-'MM'-'dd' 'HH':'mm':'ss'"];
+    [formatter setLenient:YES];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSDate *date = [formatter dateFromString:stringDate];
+    
+    return date;
+}
+
++(NSString *) formatDate:(NSDate*) date
+{
+    if (date==nil) {
+        return nil;
+    }
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:date];
+    NSString *theTimeStamp = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", [components year], [components month], [components day], [components hour], [components minute], [components second]];
+    return theTimeStamp;
+}
+
 + (id)getJsonData:(id)obj
 {
     NSError *error = nil;
@@ -63,9 +85,9 @@ static Tools *sharedTools;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setValue:[NSNumber numberWithFloat:[audioRecorder averagePowerForChannel:0]] forKey:KAveragePower];
     [dic setValue:[NSNumber numberWithFloat:[audioRecorder peakPowerForChannel:0]] forKey:KPeakPower];
-    [dic setValue:date forKey:@"date"];
-    [dic setValue:audioRecorder.url.path forKey:@"path"];
     
+    [dic setValue:[Tools formatDate:date] forKey:@"date"];
+    [dic setValue:audioRecorder.url.path forKey:@"path"];
     
     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioRecorder.url error:Nil];
     NSLog(@"测试打印，录音总时间%f",audioPlayer.duration);

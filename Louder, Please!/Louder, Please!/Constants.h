@@ -33,8 +33,12 @@ typedef NSUInteger  ScrollType;
 #define KTimeLevel_8_10 @"Second8_10"
 #define KTimeLevel_10_max @"Second10_max"
 
-#define KServerAddress @"http://172.16.40.237/louderplease/"           // regular server
-#define KServerAddressTest @"http://127.0.0.1/louderplease/"           // regular server
+#define KServerAddress @"http://idreamstudio.cn/louderplease/"           // regular server
+#define KServerAddressTest @"http://127.0.0.1/louderplease/"           // test server
+
+#define KFunctionLogin @"LoginUser.php"
+#define KFunctionUpload @"upload_file.php"
+#define KFunctionRegister @"registeruser.php"
 
 #define KAlertPowerRange_160_150 @"你确定是在用嘴发声么！！！"
 #define KAlertPowerRange_150_120 @"你TMD的有病吧，这里是比谁嘶吼声大又不是比小！"

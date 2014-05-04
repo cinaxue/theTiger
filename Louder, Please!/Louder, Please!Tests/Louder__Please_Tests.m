@@ -25,12 +25,42 @@
 {
     NSString *path = [[NSBundle mainBundle]pathForResource:@"Action_Female@2x" ofType:@"png"];
 
-    [ASIRequestHttpController postMethodPath:@"upload_file.php"
-                                        path:path success:^(id responseObj) {
-                                            NSLog(@"123");
-                                        } failure:^(id responseObject) {
-                                            NSLog(@"32423");
-                                        }];
+    [ASIRequestHttpController uploadPath:path userID:@"abc" method:KFunctionUpload success:^(id responseObj) {
+        NSLog(@"123");
+    } failure:^(id responseObject) {
+        NSLog(@"32423");
+    }];
+}
+
+-(void) testDateFormat
+{
+    NSDate *date = [NSDate date];
+    NSString *stringDate = [Tools formatDate:date];
+    NSDate *dateNew = [Tools dateFromString:stringDate];
+    
+    XCTAssertTrue([date isEqualToDate:dateNew], @"Success!");
+}
+
+-(void) testLoginUser
+{
+    NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:@"cina1",@"username",@"cina1",@"password",nil];
+    [ASIRequestHttpController postMethodPath:KFunctionLogin parameters:dictionry success:^(id responseObj) {
+        
+        [UserInfo setSharedUserInfo:[responseObj valueForKey:@"result"]];
+        NSLog(@"124");
+    } failure:^(id responseObject) {
+        NSLog(@"ABC");
+    }];
+}
+
+-(void) testRegisterUser
+{
+    NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:@"cina",@"username",@"cina",@"password",@"cina@163.com",@"email",@"123123",@"date",[NSString stringWithFormat:@"%d", arc4random()%2],@"sex",nil];
+    [ASIRequestHttpController postMethodPath:KFunctionRegister parameters:dictionry success:^(id responseObj) {
+        NSLog(@"124");
+    } failure:^(id responseObject) {
+        NSLog(responseObject);
+    }];
 }
 
 -(void)testNetworkSystem

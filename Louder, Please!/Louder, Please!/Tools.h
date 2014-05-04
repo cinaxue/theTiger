@@ -19,6 +19,8 @@
 @property(nonatomic,retain) NSMutableDictionary *fullLists;
 @property(nonatomic, assign) SEL selector;
 
++(NSDate*) dateFromString:(NSString *) stringDate;
++(NSString *) formatDate:(NSDate*) date;
 +(void) addPowerToHistoryAVAudioRecorder:(AVAudioRecorder*) audioRecorder Date:(NSDate*) date;
 + (id)getJsonData:(id)obj;
 +(NSString *)getDocumentFilePath;
