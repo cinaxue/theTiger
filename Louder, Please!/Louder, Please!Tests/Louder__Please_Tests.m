@@ -23,7 +23,7 @@
 
 -(void)testUploadFile
 {
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"Action_Female@2x" ofType:@"png"];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"EZAudioTest" ofType:@"caf"];
 
     [ASIRequestHttpController uploadPath:path userID:@"abc" method:KFunctionUpload success:^(id responseObj) {
         NSLog(@"123");

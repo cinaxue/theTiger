@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 #import "Tools.h"
 #import "DataPostURL.h"
+#import "ASIRequestHttpController.h"
 
 @interface RegisterViewController ()
 
@@ -22,7 +23,8 @@
 
 -(void)goPreviousController:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES
+                             completion:NULL];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,6 +34,17 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) animationFinished
+{
+    //进入主视图时的水波纹动画
+    //    CATransition *animation=[CATransition animation];
+    //    animation.delegate=self;
+    //    animation.duration=3.0f;
+    //    animation.timingFunction=UIViewAnimationCurveEaseInOut;
+    //    animation.type=@"rippleEffect";
+    //    [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
 
 -(void) MoveViewTopWhenEditing:(id) sender
@@ -95,7 +108,17 @@
             return;
         }
 
-//        NSString *finalPassword = [Tools urlencode:[Tools stringWithMD5Hash:password.text]];
+        NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:userNameText,@"username",password.text,@"password",email.text,@"email",[[NSDate date]description],@"date",[NSString stringWithFormat:@"%d", arc4random()%2],@"sex",nil];
+        [ASIRequestHttpController postMethodPath:KFunctionRegister parameters:dictionry success:^(id responseObj) {
+            [self goPreviousController:nil];
+        } failure:^(id responseObject) {
+            if ([responseObject valueForKey:@"result"]) {
+                [Tools showAlert:[[responseObject valueForKey:@"result"] valueForKey:@"message"]];
+            }else
+                [Tools showAlert:@"注册失败"];
+        }];
+        
+        //        NSString *finalPassword = [Tools urlencode:[Tools stringWithMD5Hash:password.text]];
 //        finalPassword = [finalPassword stringByAppendingString:@"%0A"];
 //
 //        NSString *keywords = [NSString stringWithFormat:@"%@%@%@%@%@%@%@",Get_Keywords(@"user_type",@"c"), Get_Keywords(KAccount,userNameText),Get_Keywords(KPassword,finalPassword),Get_Keywords(@"nike",userNameText),Get_Keywords(@"email",email.text),Get_Keywords(@"phone",@"13800000000"),Get_Keywords(@"userid",@"1111111111")];
@@ -180,6 +203,7 @@
     UITextField *textfield;
     if (![cell.contentView viewWithTag:111]) {
         textfield = [[[UITextField alloc]initWithFrame:CGRectMake(5, 10, 200, 30)] autorelease];
+        [textfield setAutocorrectionType:UITextAutocorrectionTypeNo];
         textfield.borderStyle = UITextBorderStyleNone;
         textfield.tag = 111;
         textfield.delegate = self;
@@ -208,10 +232,7 @@
     }
 	return cell;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

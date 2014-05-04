@@ -52,13 +52,6 @@
     }
 }
 
-+(void)registerUserId:(NSString *)userID password:(NSString *)password success:(void (^)(id))success failure:(void (^)(id))failure
-{
-    NSString *post = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&date=%@&sex=%@",[NSString stringWithFormat:@"testname%d", arc4random()%100],@"testname",@"testname@163.com",@"",[NSString stringWithFormat:@"%d", arc4random()%2]];
-
-//    NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:@"cina",@"username",@"123",@"id", nil];
-
-}
 +(void)uploadPath:(NSString *)path userID:(NSString *)userID method:(NSString *)method success:(void (^)(id))success failure:(void (^)(id))failure
 {
     NSMutableURLRequest *myRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[[KServerAddress stringByAppendingString:method] stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]]];

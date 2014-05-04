@@ -7,9 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="mBackgroundImage" destination="N0e-mZ-9iN" id="bzH-U8-Ihc"/>
                 <outlet property="mMovingView" destination="37" id="38"/>
                 <outlet property="mNavigationBar" destination="32" id="41"/>
-                <outlet property="mTableView" destination="8" id="24"/>
+                <outlet property="mTableView" destination="6rZ-8A-oOq" id="Whi-EG-vOg"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -44,15 +45,6 @@
                             <rect key="frame" x="101" y="68" width="119" height="100"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         </imageView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="8">
-                            <rect key="frame" x="26" y="189" width="268" height="100"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="15"/>
-                                <outlet property="delegate" destination="-1" id="16"/>
-                            </connections>
-                        </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WMC-tH-vIx">
                             <rect key="frame" x="243" y="307" width="51" height="47"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -67,6 +59,15 @@
                                 <action selector="goLoginController:" destination="-1" eventType="touchUpInside" id="2xI-A4-RTK"/>
                             </connections>
                         </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6rZ-8A-oOq">
+                            <rect key="frame" x="26" y="113" width="268" height="192"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Qfg-D2-Jek"/>
+                                <outlet property="delegate" destination="-1" id="h9h-GF-3v7"/>
+                            </connections>
+                        </tableView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>

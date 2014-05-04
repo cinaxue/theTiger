@@ -25,14 +25,24 @@
 
 -(void)goRegisterController:(id)sender
 {
-    RegisterViewController *registerController = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
-    [self.navigationController pushViewController:registerController animated:YES];
-    [registerController release];
+    RegisterViewController *registerController = [[[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil] autorelease];
+    [self presentViewController:registerController animated:YES completion:NULL];
 }
 
 -(void)goPreviousController:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void) animationFinished
+{
+    //进入主视图时的水波纹动画
+//    CATransition *animation=[CATransition animation];
+//    animation.delegate=self;
+//    animation.duration=3.0f;
+//    animation.timingFunction=UIViewAnimationCurveEaseInOut;
+//    animation.type=@"rippleEffect";
+//    [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
 
 -(void) MoveViewTopWhenEditing:(id) sender
@@ -89,12 +99,18 @@
      
         //            NSString *finalPassword = [Tools urlencode:[Tools stringWithMD5Hash:password.text]];
 
-        NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:userName,@"username",password,@"password",nil];
+//        NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:@"cina1",@"username",@"cina1",@"password",nil];
+        NSDictionary *dictionry = [NSDictionary dictionaryWithObjectsAndKeys:userNameText,@"username",password.text,@"password",nil];
+
         [ASIRequestHttpController postMethodPath:KFunctionLogin parameters:dictionry success:^(id responseObj) {
+            
             [UserInfo setSharedUserInfo:[responseObj valueForKey:@"result"]];
-            NSLog(@"124");
+            [self goPreviousController:nil];
         } failure:^(id responseObject) {
-            NSLog(@"ABC");
+            if ([responseObject valueForKey:@"result"]) {
+                [Tools showAlert:[responseObject valueForKey:@"result"]];
+            }else
+                [Tools showAlert:responseObject];
         }];
     }
 }
@@ -130,16 +146,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [Tools SetColorToSystemColor:mNavigationBar];
 
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if ([[Tools sharedTools] isUserLogedIn]) {
-        [self goPreviousController:nil];
-    }
 }
 
 - (void)viewDidUnload
@@ -187,6 +198,7 @@
     UITextField *textfield;
     if (![cell.contentView viewWithTag:111]) {
         textfield = [[[UITextField alloc]initWithFrame:CGRectMake(5, 10, 200, 30)] autorelease];
+        [textfield setAutocorrectionType:UITextAutocorrectionTypeNo];
         textfield.borderStyle = UITextBorderStyleNone;
         textfield.tag = 111;
         textfield.delegate = self;
@@ -207,10 +219,6 @@
             break;
     }
 	return cell;
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

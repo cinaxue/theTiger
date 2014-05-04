@@ -52,7 +52,7 @@ static Tools *sharedTools;
 +(NSDate*) dateFromString:(NSString *) stringDate
 {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [formatter setDateFormat:@"yyyy'-'MM'-'dd' 'HH':'mm':'ss'"];
+    [formatter setDateFormat:@"yyyy'-'MM'-'dd' 'HH'-'mm'-'ss'"];
     [formatter setLenient:YES];
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     NSDate *date = [formatter dateFromString:stringDate];
@@ -67,7 +67,7 @@ static Tools *sharedTools;
     }
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:date];
-    NSString *theTimeStamp = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", [components year], [components month], [components day], [components hour], [components minute], [components second]];
+    NSString *theTimeStamp = [NSString stringWithFormat:@"%d-%d-%d %d-%d-%d", [components year], [components month], [components day], [components hour], [components minute], [components second]];
     return theTimeStamp;
 }
 

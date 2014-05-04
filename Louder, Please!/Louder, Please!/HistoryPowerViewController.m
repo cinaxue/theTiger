@@ -225,8 +225,6 @@
     return 50;
 }
 
-
-
 #pragma mark UIActionSheet的代理方法
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

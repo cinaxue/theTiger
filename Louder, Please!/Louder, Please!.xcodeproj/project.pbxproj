@@ -324,6 +324,7 @@
 		5EE86EBD19150EC0007FC742 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE86EBB19150EC0007FC742 /* LoginViewController.xib */; };
 		5EE86EC119150ECC007FC742 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86EBF19150ECC007FC742 /* RegisterViewController.m */; };
 		5EE86EC219150ECC007FC742 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE86EC019150ECC007FC742 /* RegisterViewController.xib */; };
+		5EFBFFA219162BFE00B553A4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFBFFA119162BFE00B553A4 /* CoreFoundation.framework */; };
 		A913028F18BDAB1300B701EA /* PlayRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A913028E18BDAB1300B701EA /* PlayRecordCell.m */; };
 		A913029118BDAB2300B701EA /* PlayRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A913029018BDAB2200B701EA /* PlayRecordCell.xib */; };
 		A91302D918BE322B00B701EA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91302D818BE322B00B701EA /* MessageUI.framework */; };
@@ -704,6 +705,7 @@
 		5EE86EBE19150ECC007FC742 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		5EE86EBF19150ECC007FC742 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5EE86EC019150ECC007FC742 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		5EFBFFA119162BFE00B553A4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		A913028D18BDAB1300B701EA /* PlayRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRecordCell.h; sourceTree = "<group>"; };
 		A913028E18BDAB1300B701EA /* PlayRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayRecordCell.m; sourceTree = "<group>"; };
 		A913029018BDAB2200B701EA /* PlayRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayRecordCell.xib; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EFBFFA219162BFE00B553A4 /* CoreFoundation.framework in Frameworks */,
 				5E484E0F19137C3C00F90EBD /* MobileCoreServices.framework in Frameworks */,
 				5E484E0D19137C1F00F90EBD /* Security.framework in Frameworks */,
 				5E484E0B19137C0F00F90EBD /* SystemConfiguration.framework in Frameworks */,
@@ -886,6 +889,7 @@
 		5ED4868018ACC83900C9EC9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EFBFFA119162BFE00B553A4 /* CoreFoundation.framework */,
 				5E484E0E19137C3C00F90EBD /* MobileCoreServices.framework */,
 				5E484E0C19137C1F00F90EBD /* Security.framework */,
 				5E484E0A19137C0F00F90EBD /* SystemConfiguration.framework */,

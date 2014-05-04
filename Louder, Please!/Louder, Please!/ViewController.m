@@ -11,6 +11,9 @@
 #import "HistoryPowerViewController.h"
 #import "DataPostURL.h"
 #import "UploadData.h"
+#import "UserInfo.h"
+#import "LoginViewController.h"
+#import "ASIRequestHttpController.h"
 
 @interface ViewController ()
 {
@@ -153,13 +156,24 @@
 //        [self.microphone stopFetchingAudio];
         
         // 测试上传音频到服务器
-        [self getDataFromServer];
+//        [self getDataFromServer];
         
         // 保存到本地
         [Tools addPowerToHistoryAVAudioRecorder:audioRecorder Date:recordDate];
         
+        if (![UserInfo sharedUserInfo]) {
+            LoginViewController *historyVC = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+            [self presentViewController:historyVC animated:YES completion:NULL];
+        }else
+        {
+            UserInfo *userInfo = [UserInfo sharedUserInfo];
+            [ASIRequestHttpController uploadPath:audioRecorder.url.path userID:userInfo.userName method:KFunctionUpload success:^(id responseObj) {
+                [Tools showAlert:@"上传成功"];
+            } failure:^(id responseObject) {
+                [Tools showAlert:@"上传失败"];
+            }];
+        }
         // 上传到服务器
-//        [ASIRequestHttpController uploadPath:audioRecorder.url.path userID:<#(NSString *)#> method:<#(NSString *)#> success:<#^(id responseObj)success#> failure:<#^(id responseObject)failure#>]
         [recordDate release];
     }
     
@@ -185,7 +199,9 @@
         alertMessage = [NSString stringWithFormat:@"平均分贝: %f. %@", averagePower, KAlertPowerRange_0];
     }
     
-    [Tools showAlert:alertMessage];
+    if (audioPlayer.duration>4) {
+        [Tools showAlert:alertMessage];
+    }
 }
 
 -(IBAction) playOrStopTrack:(id) sender

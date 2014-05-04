@@ -31,7 +31,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         </imageView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9">
-                            <rect key="frame" x="26" y="163.99999869992368" width="268" height="278"/>
+                            <rect key="frame" x="26" y="164.00000076207431" width="268" height="278"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
