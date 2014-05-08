@@ -328,6 +328,17 @@
 		A913028F18BDAB1300B701EA /* PlayRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A913028E18BDAB1300B701EA /* PlayRecordCell.m */; };
 		A913029118BDAB2300B701EA /* PlayRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A913029018BDAB2200B701EA /* PlayRecordCell.xib */; };
 		A91302D918BE322B00B701EA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91302D818BE322B00B701EA /* MessageUI.framework */; };
+		A99E0A53191B73D700DD5B25 /* RADataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A3E191B73D700DD5B25 /* RADataObject.m */; };
+		A99E0A54191B73D700DD5B25 /* RATreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A40191B73D700DD5B25 /* RATreeNode.m */; };
+		A99E0A55191B73D700DD5B25 /* RATreeNodeCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A42191B73D700DD5B25 /* RATreeNodeCollectionController.m */; };
+		A99E0A56191B73D700DD5B25 /* RATreeNodeInfo+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A44191B73D700DD5B25 /* RATreeNodeInfo+Private.m */; };
+		A99E0A57191B73D700DD5B25 /* RATreeNodeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A46191B73D700DD5B25 /* RATreeNodeInfo.m */; };
+		A99E0A58191B73D700DD5B25 /* RATreeView+Enums.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A48191B73D700DD5B25 /* RATreeView+Enums.m */; };
+		A99E0A59191B73D700DD5B25 /* RATreeView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A4A191B73D700DD5B25 /* RATreeView+Private.m */; };
+		A99E0A5A191B73D700DD5B25 /* RATreeView+TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A4C191B73D700DD5B25 /* RATreeView+TableViewDataSource.m */; };
+		A99E0A5B191B73D700DD5B25 /* RATreeView+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A4E191B73D700DD5B25 /* RATreeView+TableViewDelegate.m */; };
+		A99E0A5C191B73D700DD5B25 /* RATreeView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A50191B73D700DD5B25 /* RATreeView+UIScrollView.m */; };
+		A99E0A5D191B73D700DD5B25 /* RATreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0A52191B73D700DD5B25 /* RATreeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -710,6 +721,28 @@
 		A913028E18BDAB1300B701EA /* PlayRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayRecordCell.m; sourceTree = "<group>"; };
 		A913029018BDAB2200B701EA /* PlayRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayRecordCell.xib; sourceTree = "<group>"; };
 		A91302D818BE322B00B701EA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A99E0A3D191B73D700DD5B25 /* RADataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RADataObject.h; sourceTree = "<group>"; };
+		A99E0A3E191B73D700DD5B25 /* RADataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RADataObject.m; sourceTree = "<group>"; };
+		A99E0A3F191B73D700DD5B25 /* RATreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeNode.h; sourceTree = "<group>"; };
+		A99E0A40191B73D700DD5B25 /* RATreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeNode.m; sourceTree = "<group>"; };
+		A99E0A41191B73D700DD5B25 /* RATreeNodeCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeNodeCollectionController.h; sourceTree = "<group>"; };
+		A99E0A42191B73D700DD5B25 /* RATreeNodeCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeNodeCollectionController.m; sourceTree = "<group>"; };
+		A99E0A43191B73D700DD5B25 /* RATreeNodeInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeNodeInfo+Private.h"; sourceTree = "<group>"; };
+		A99E0A44191B73D700DD5B25 /* RATreeNodeInfo+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeNodeInfo+Private.m"; sourceTree = "<group>"; };
+		A99E0A45191B73D700DD5B25 /* RATreeNodeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeNodeInfo.h; sourceTree = "<group>"; };
+		A99E0A46191B73D700DD5B25 /* RATreeNodeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeNodeInfo.m; sourceTree = "<group>"; };
+		A99E0A47191B73D700DD5B25 /* RATreeView+Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+Enums.h"; sourceTree = "<group>"; };
+		A99E0A48191B73D700DD5B25 /* RATreeView+Enums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+Enums.m"; sourceTree = "<group>"; };
+		A99E0A49191B73D700DD5B25 /* RATreeView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+Private.h"; sourceTree = "<group>"; };
+		A99E0A4A191B73D700DD5B25 /* RATreeView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+Private.m"; sourceTree = "<group>"; };
+		A99E0A4B191B73D700DD5B25 /* RATreeView+TableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+TableViewDataSource.h"; sourceTree = "<group>"; };
+		A99E0A4C191B73D700DD5B25 /* RATreeView+TableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+TableViewDataSource.m"; sourceTree = "<group>"; };
+		A99E0A4D191B73D700DD5B25 /* RATreeView+TableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+TableViewDelegate.h"; sourceTree = "<group>"; };
+		A99E0A4E191B73D700DD5B25 /* RATreeView+TableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+TableViewDelegate.m"; sourceTree = "<group>"; };
+		A99E0A4F191B73D700DD5B25 /* RATreeView+UIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+UIScrollView.h"; sourceTree = "<group>"; };
+		A99E0A50191B73D700DD5B25 /* RATreeView+UIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+UIScrollView.m"; sourceTree = "<group>"; };
+		A99E0A51191B73D700DD5B25 /* RATreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeView.h; sourceTree = "<group>"; };
+		A99E0A52191B73D700DD5B25 /* RATreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -919,6 +952,7 @@
 				A9EA3B1718D6B537009118A9 /* Tools */,
 				A9EA3B1318D6B43A009118A9 /* AppDelegate */,
 				5E99B0B719146394001BA9E4 /* Resource */,
+				A99E0A5E191B73E800DD5B25 /* 第三方 */,
 				5E3F8AFA18B116D000548397 /* History.plist */,
 				5E3F8AE318B0F72E00548397 /* msgtoolong.wav */,
 				5ED4869918ACC83900C9EC9B /* Images.xcassets */,
@@ -1199,6 +1233,43 @@
 				5ED487A318ACCC0B00C9EC9B /* Voip_SoundCloseHl@2x.png */,
 			);
 			name = "素材 wechat";
+			sourceTree = "<group>";
+		};
+		A99E0A3C191B73D700DD5B25 /* RATreeView */ = {
+			isa = PBXGroup;
+			children = (
+				A99E0A3D191B73D700DD5B25 /* RADataObject.h */,
+				A99E0A3E191B73D700DD5B25 /* RADataObject.m */,
+				A99E0A3F191B73D700DD5B25 /* RATreeNode.h */,
+				A99E0A40191B73D700DD5B25 /* RATreeNode.m */,
+				A99E0A41191B73D700DD5B25 /* RATreeNodeCollectionController.h */,
+				A99E0A42191B73D700DD5B25 /* RATreeNodeCollectionController.m */,
+				A99E0A43191B73D700DD5B25 /* RATreeNodeInfo+Private.h */,
+				A99E0A44191B73D700DD5B25 /* RATreeNodeInfo+Private.m */,
+				A99E0A45191B73D700DD5B25 /* RATreeNodeInfo.h */,
+				A99E0A46191B73D700DD5B25 /* RATreeNodeInfo.m */,
+				A99E0A47191B73D700DD5B25 /* RATreeView+Enums.h */,
+				A99E0A48191B73D700DD5B25 /* RATreeView+Enums.m */,
+				A99E0A49191B73D700DD5B25 /* RATreeView+Private.h */,
+				A99E0A4A191B73D700DD5B25 /* RATreeView+Private.m */,
+				A99E0A4B191B73D700DD5B25 /* RATreeView+TableViewDataSource.h */,
+				A99E0A4C191B73D700DD5B25 /* RATreeView+TableViewDataSource.m */,
+				A99E0A4D191B73D700DD5B25 /* RATreeView+TableViewDelegate.h */,
+				A99E0A4E191B73D700DD5B25 /* RATreeView+TableViewDelegate.m */,
+				A99E0A4F191B73D700DD5B25 /* RATreeView+UIScrollView.h */,
+				A99E0A50191B73D700DD5B25 /* RATreeView+UIScrollView.m */,
+				A99E0A51191B73D700DD5B25 /* RATreeView.h */,
+				A99E0A52191B73D700DD5B25 /* RATreeView.m */,
+			);
+			path = RATreeView;
+			sourceTree = "<group>";
+		};
+		A99E0A5E191B73E800DD5B25 /* 第三方 */ = {
+			isa = PBXGroup;
+			children = (
+				A99E0A3C191B73D700DD5B25 /* RATreeView */,
+			);
+			name = "第三方";
 			sourceTree = "<group>";
 		};
 		A9EA3B1218D6B425009118A9 /* 第三方类库 */ = {
@@ -1631,19 +1702,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99E0A5B191B73D700DD5B25 /* RATreeView+TableViewDelegate.m in Sources */,
+				A99E0A58191B73D700DD5B25 /* RATreeView+Enums.m in Sources */,
+				A99E0A57191B73D700DD5B25 /* RATreeNodeInfo.m in Sources */,
 				5E29977618B83D5B008DC137 /* EZAudioPlot.m in Sources */,
 				5E484E001913763900F90EBD /* ASIDataDecompressor.m in Sources */,
 				5E11C93418BDD01C00FFEBD3 /* SBJsonWriter.m in Sources */,
 				5E29977418B83D5B008DC137 /* EZAudio.m in Sources */,
 				5E29977518B83D5B008DC137 /* EZAudioFile.m in Sources */,
+				A99E0A53191B73D700DD5B25 /* RADataObject.m in Sources */,
 				5E11C93518BDD01C00FFEBD3 /* NSObject+SBJSON.m in Sources */,
 				5E29977B18B83D5B008DC137 /* EZPlot.m in Sources */,
 				5E484DE7191373B500F90EBD /* ASIRequestHttpController.m in Sources */,
 				5E11C92118BDCFF000FFEBD3 /* DataPostURL.m in Sources */,
 				5ED4869818ACC83900C9EC9B /* ViewController.m in Sources */,
 				5E29977818B83D5B008DC137 /* EZAudioPlotGLKViewController.m in Sources */,
+				A99E0A5D191B73D700DD5B25 /* RATreeView.m in Sources */,
 				5E11C93818BDD01C00FFEBD3 /* XmlParse.m in Sources */,
+				A99E0A5A191B73D700DD5B25 /* RATreeView+TableViewDataSource.m in Sources */,
 				5E11C93318BDD01C00FFEBD3 /* SBJsonParser.m in Sources */,
+				A99E0A5C191B73D700DD5B25 /* RATreeView+UIScrollView.m in Sources */,
 				5E484E1719137D6400F90EBD /* ASIAuthenticationDialog.m in Sources */,
 				5E11C93618BDD01C00FFEBD3 /* NSString+SBJSON.m in Sources */,
 				5E11C93218BDD01C00FFEBD3 /* SBJsonBase.m in Sources */,
@@ -1658,13 +1736,17 @@
 				5ED4869218ACC83900C9EC9B /* AppDelegate.m in Sources */,
 				5E29977718B83D5B008DC137 /* EZAudioPlotGL.m in Sources */,
 				5E484DFE1913763900F90EBD /* ASIDownloadCache.m in Sources */,
+				A99E0A56191B73D700DD5B25 /* RATreeNodeInfo+Private.m in Sources */,
 				5E484E1419137D3300F90EBD /* Reachability.m in Sources */,
 				5ED4868E18ACC83900C9EC9B /* main.m in Sources */,
+				A99E0A59191B73D700DD5B25 /* RATreeView+Private.m in Sources */,
 				5E484DFA1913763900F90EBD /* ASIInputStream.m in Sources */,
 				5E11C93718BDD01C00FFEBD3 /* SBJsonStreamWriter.m in Sources */,
 				5E29977918B83D5B008DC137 /* EZMicrophone.m in Sources */,
 				5E29977318B83D5B008DC137 /* AEFloatConverter.m in Sources */,
+				A99E0A55191B73D700DD5B25 /* RATreeNodeCollectionController.m in Sources */,
 				5E11C99D18BDD88600FFEBD3 /* UploadData.m in Sources */,
+				A99E0A54191B73D700DD5B25 /* RATreeNode.m in Sources */,
 				5E3F8B0A18B11C7300548397 /* HistoryPowerViewController.m in Sources */,
 				5EE86EBC19150EC0007FC742 /* LoginViewController.m in Sources */,
 				5E484DFF1913763900F90EBD /* ASIDataCompressor.m in Sources */,
